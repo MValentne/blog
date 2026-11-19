@@ -2,7 +2,7 @@
 date = '2026-08-18T22:30:58-03:00'
 draft = false
 title = 'La Ruta De Apostoles a Encarnacion'
-author = 'Valentino Méndez'
+author = 'Valentino Mendé'
 tags = ["Carretera", "Misiones", "Paraguay"]
 categories = ["Fotografia"]
 +++

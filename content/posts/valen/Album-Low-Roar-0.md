@@ -2,7 +2,7 @@
 date = '2026-08-24T23:54:58-03:00'
 draft = false
 title = 'Album Low Roar-0'
-author = 'Valentino Méndez'
+author = 'Valentino Mendé'
 tags = ["Low Roar", "musica"]
 categories = ["Musica"]
 +++

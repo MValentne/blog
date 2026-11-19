@@ -2,7 +2,7 @@
 date = '2026-08-07T23:27:07-03:00'
 draft = false
 title = 'Comparacion De Dos Poblaciones'
-author = 'Valentino Méndez'
+author = 'Valentino Mendé'
 tags = ["medias", "proporciones", "inferencia"]
 categories = ["Estadistica"]
 +++

@@ -45,7 +45,7 @@ Lo que **ya no está** (y por qué):
 | `shortcodes/webamp.html` y el post `webamp-en-el-blog.md` | eliminados | El reproductor Webamp no se usa más. El post de Low Roar conserva su texto, pero sin el reproductor. |
 | `assets/css/main.scss` (676 líneas Sass) | CSS de XMin, sin copias ni overrides | Se usa el `style.css` y `fonts.css` del tema tal cual. |
 | Sidebar, widgets de categorías y `data/menu.toml` | menú en `hugo.toml` | XMin usa `[[menu.main]]`. |
-| Autores múltiples | `author = 'Valentino Méndez'` en todos los archivos | El blog pasó a ser personal. Los textos de otros autores se conservan. |
+| Autores múltiples | `author = 'Valentino Mendé'` en todos los archivos | El blog pasó a ser personal. Los textos de otros autores se conservan. |
 
 ---
 
@@ -229,7 +229,7 @@ Hugo acepta TOML (`+++`), YAML (`---`) o JSON. En este repo se usa TOML por conv
 title = 'Título'
 date = 2026-11-19T12:00:00-03:00
 draft = true                 # true = solo se ve con `hugo server -D`
-author = 'Valentino Méndez'
+author = 'Valentino Mendé'
 tags = ['tag1', 'tag2']
 categories = ['Categoría']
 +++

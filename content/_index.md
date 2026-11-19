@@ -3,7 +3,7 @@ title = 'Inicio'
 date = 2026-11-19
 +++
 
-# Valentino Méndez
+# Valentino Mendé
 
 Apuntes de cursada, proyectos y eventos. Antes este blog era de varios; ahora es solo mío.
 

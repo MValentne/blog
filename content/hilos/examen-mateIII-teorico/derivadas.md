@@ -2,7 +2,7 @@
 date = '2026-07-16T11:09:32-03:00'
 draft = false
 title = 'Derivadas'
-author = 'Valentino Méndez'
+author = 'Valentino Mendé'
 tags = ["calculo", "derivadas", "calculo diferencial"]
 categories = ["Matematica"]
 +++

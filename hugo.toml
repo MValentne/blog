@@ -1,10 +1,10 @@
 # ============================================================
-# Configuración del blog personal de Valentino Méndez
+# Configuración del blog personal de Valentino Mendé
 # Documentada línea por línea en CODEBASE.md
 # ============================================================
 baseURL = 'https://mvalentne.github.io/blog/'
 locale = 'es-ar'
-title = 'Valentino Méndez | Blog'
+title = 'Valentino Mendé | Blog'
 theme = 'hugo-xmin'
 
 # Los posts mantienen sus URLs históricas aunque cambie el tema.
@@ -34,8 +34,8 @@ theme = 'hugo-xmin'
   codeFences = false
 
 [params]
-  description = 'Apuntes y proyectos de Valentino Méndez.'
-  footer = '© Valentino Méndez {Year}'
+  description = 'Apuntes y proyectos de Valentino Mendé.'
+  footer = '© Valentino Mendé {Year}'
 
 # ------------------------------------------------------------
 # Menú superior (XMin lo renderiza en su partial header.html)

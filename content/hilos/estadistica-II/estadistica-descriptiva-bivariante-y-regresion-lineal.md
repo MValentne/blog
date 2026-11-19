@@ -2,7 +2,7 @@
 date = '2026-08-10T18:17:40-03:00'
 draft = false
 title = 'Estadistica Descriptiva Bivariante Y Regresion Lineal'
-author = 'Valentino Méndez'
+author = 'Valentino Mendé'
 tags = ["inferencia", "regresion"]
 categories = ["Estadistica"]
 +++

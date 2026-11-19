@@ -2,7 +2,7 @@
 date = '2026-07-13T18:11:20-03:00'
 draft = false
 title = 'Limites Y Continuidad'
-author = 'Valentino Méndez'
+author = 'Valentino Mendé'
 tags = ["calculo", "limites", "continuidad"]
 categories = ["Matematica"]
 +++

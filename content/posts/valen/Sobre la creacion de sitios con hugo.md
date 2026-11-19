@@ -2,7 +2,7 @@
 date = '2026-07-08T21:06:31-03:00'
 draft = false
 title = 'Sobre La Creacion De Sitios Con Hugo'
-author = 'Valentino Méndez'
+author = 'Valentino Mendé'
 tags = ["explicativo", "prueba", "hugo"]
 categories = ["Blog"]
 +++
