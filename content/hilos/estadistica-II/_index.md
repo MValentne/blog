@@ -2,7 +2,7 @@
 date = '2026-07-29T16:00:46-03:00'
 draft = false
 title = 'Notas sobre Estadistica II'
-author = 'Valentino'
+author = 'Valentino Méndez'
 tags = ["estadistica", "notas de cursada"]
 categories = ["Estadistica"]
 +++

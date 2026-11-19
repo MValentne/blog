@@ -2,7 +2,7 @@
 date = '2026-07-26T14:10:53-03:00'
 draft = false
 title = 'Ecuaciones Diferenciales'
-author = 'Valentino'
+author = 'Valentino Méndez'
 tags = ["calculo", "algebra"]
 categories = ["Matematica"]
 +++

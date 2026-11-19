@@ -3,7 +3,7 @@ title = 'Sobre mí / CV'
 date = 2026-11-19
 +++
 
-# Valentino
+# Valentino Méndez
 
 Estudio sistemas en Buenos Aires.
 

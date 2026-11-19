@@ -2,7 +2,7 @@
 date = '2026-08-06T20:43:06-03:00'
 draft = false
 title = 'Inferencia Estadistica'
-author = 'Valentino'
+author = 'Valentino Méndez'
 tags = ["inferencia", "repaso", "conceptos base"]
 categories = ["Estadistica"]
 +++

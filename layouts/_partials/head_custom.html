@@ -5,6 +5,9 @@
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
 <link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
 
+{{/* Hugo --minify se come los espacios entre los <li> del menú; esto los repone. */}}
+<style>.menu li { margin-right: 0.5em; }</style>
+
 {{/* Fórmulas en los apuntes. */}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>

@@ -1,4 +1,4 @@
-# Valentino | Blog
+# Valentino Méndez | Blog
 
 Blog personal: apuntes, proyectos y eventos. Hecho con [Hugo](https://gohugo.io/) y el tema [XMin](https://github.com/yihui/hugo-xmin).
 

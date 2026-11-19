@@ -2,7 +2,7 @@
 date = '2026-08-17T10:28:34-07:00'
 draft = false
 title = 'Little Drawings'
-author = 'Valentino'
+author = 'Valentino Méndez'
 tags = ["sketch"]
 categories = ["Arte"]
 +++

@@ -2,7 +2,7 @@
 date = '2026-08-27T23:07:59-03:00'
 draft = false
 title = 'Analisis Computacional De Distancias Lexicas Mediante Grafos'
-author = 'Valentino'
+author = 'Valentino Méndez'
 tags = ["grafos", "levenshtein", "investigacion"]
 categories = ["Computacion"]
 +++

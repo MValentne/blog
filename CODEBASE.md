@@ -45,7 +45,7 @@ Lo que **ya no está** (y por qué):
 | `shortcodes/webamp.html` y el post `webamp-en-el-blog.md` | eliminados | El reproductor Webamp no se usa más. El post de Low Roar conserva su texto, pero sin el reproductor. |
 | `assets/css/main.scss` (676 líneas Sass) | CSS de XMin, sin copias ni overrides | Se usa el `style.css` y `fonts.css` del tema tal cual. |
 | Sidebar, widgets de categorías y `data/menu.toml` | menú en `hugo.toml` | XMin usa `[[menu.main]]`. |
-| Autores múltiples | `author = 'Valentino'` en todos los archivos | El blog pasó a ser personal. Los textos de otros autores se conservan. |
+| Autores múltiples | `author = 'Valentino Méndez'` en todos los archivos | El blog pasó a ser personal. Los textos de otros autores se conservan. |
 
 ---
 
@@ -68,9 +68,11 @@ Lo que **ya no está** (y por qué):
 ├── layouts/               # Plantillas propias (sobrescriben las del tema)
 │   ├── index.html         # home: últimos posts + apuntes
 │   ├── _partials/
-│   │   └── head_custom.html  # favicons, KaTeX, Mermaid
+│   │   └── head_custom.html  # favicons, separación del menú, KaTeX, Mermaid
 │   ├── _default/_markup/
 │   │   └── render-codeblock-mermaid.html  # ```mermaid -> <pre class="mermaid">
+│   ├── _default/terms.html   # índice de tags/categorías, sin fechas
+│   ├── _default/term.html    # páginas individuales de tag/categoría, sin fechas
 │   ├── posts/list.html
 │   ├── hilos/list.html
 │   ├── projects/{list,single}.html
@@ -150,7 +152,7 @@ Por eso las plantillas viejas del otro tema (que usaban `define`) tuvieron que r
 
 ### `layouts/index.html` — home
 
-Muestra `content/_index.md` y dos listas: los 8 últimos posts y los 5 últimos apuntes. Usa `where site.RegularPages "Section" "posts"` para no mezclar CV/proyectos/eventos en el listado.
+Muestra `content/_index.md` y los 10 últimos posts. Usa `where site.RegularPages "Section" "posts"` para no mezclar CV/proyectos/eventos en el listado.
 
 ### `layouts/posts/list.html` — archivo de posts
 
@@ -164,11 +166,21 @@ Sirve tanto para `/hilos/` (muestra las series) como para `/hilos/<serie>/` (mue
 
 Listados y páginas individuales con campos propios (`year`, `status`, `stack`, `repo`, `demo`, `kind`, `place`, `slides`). Los datos vienen del frontmatter; el template solo los ordena y muestra.
 
+### `layouts/_default/terms.html` y `term.html` — tags y categorías
+
+XMin trae un `list.html` que reutiliza el formato de posts y por eso muestra la fecha de cada entrada. Acá se sobrescribe con dos plantillas propias que no la muestran:
+
+- `terms.html` es el índice (`/tags/`, `/categories/`): lista cada término con su cantidad de páginas entre paréntesis.
+- `term.html` es la página de un término (`/tags/musica/`, `/categories/musica/`): lista los títulos con link, sin fecha.
+
+Son las únicas plantillas de `_default/` del proyecto; el resto viene del tema.
+
 ### `layouts/_partials/head_custom.html`
 
 XMin deja dos hooks vacíos: `head_custom.html` (dentro de `<head>`) y `foot_custom.html` (antes de cerrar `<body>`). Acá metemos:
 
 - favicons + `site.webmanifest`;
+- una regla `<style>.menu li { margin-right: 0.5em; }</style>`: con `--minify`, Hugo comprime los `<li>` del menú y los ítems quedan pegados;
 - KaTeX con `auto-render` (carga `defer`, busca delimitadores en el DOM);
 - Mermaid como módulo ES, **solo si la página contiene la palabra `mermaid`** (ahorra ~1 MB en el resto).
 
@@ -195,10 +207,10 @@ Un *render hook*: transforma todo bloque ```` ```mermaid ```` en `<pre class="me
 | Home | `content/_index.md` | `/blog/` | `index.html` |
 | CV | `content/about.md` | `/blog/about/` | XMin `single.html` |
 | Posts | `content/posts/` | `/blog/posts/` | `posts/list.html` |
-| Cuaderno de estudio | `content/hilos/` | `/blog/hilos/` | `hilos/list.html` |
+| Apuntes (cuaderno de estudio) | `content/hilos/` | `/blog/hilos/` | `hilos/list.html` |
 | Proyectos | `content/projects/` | `/blog/projects/` | `projects/list.html` |
 | Eventos | `content/events/` | `/blog/events/` | `events/list.html` |
-| Tags / Categorías | (taxonomías) | `/blog/tags/`, `/blog/categories/` | XMin `terms.html` + `list.html` |
+| Tags / Categorías | (taxonomías) | `/blog/tags/`, `/blog/categories/` | `_default/terms.html` + `_default/term.html` (sin fechas) |
 
 Un **hilo** es una carpeta adentro de `content/hilos/` con su `_index.md`. Ese `_index.md` es la portada de la serie y los `.md` de al lado son las entradas. Los hilos existentes (`estadistica-II`, `examen-mateIII-teorico`, `analisis-computacional-de-distancias-lexicas-mediante-grafos`) se conservaron con sus URLs.
 
@@ -217,7 +229,7 @@ Hugo acepta TOML (`+++`), YAML (`---`) o JSON. En este repo se usa TOML por conv
 title = 'Título'
 date = 2026-11-19T12:00:00-03:00
 draft = true                 # true = solo se ve con `hugo server -D`
-author = 'Valentino'
+author = 'Valentino Méndez'
 tags = ['tag1', 'tag2']
 categories = ['Categoría']
 +++

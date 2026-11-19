@@ -2,7 +2,7 @@
 date = '2026-07-24T15:40:37-03:00'
 draft = false
 title = 'Integrales Definidas'
-author = 'Valentino'
+author = 'Valentino Méndez'
 tags = ["calculo", "integrales", "calculo integral"]
 categories = ["Matematica"]
 +++
