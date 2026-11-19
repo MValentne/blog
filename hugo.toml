@@ -7,9 +7,9 @@ locale = 'es-ar'
 title = 'Valentino Mendé | Blog'
 theme = 'hugo-xmin'
 
-# Los posts mantienen sus URLs históricas aunque cambie el tema.
+# Los posts van directo a /posts/<slug>/; los hilos conservan su serie en la URL.
 [permalinks]
-  posts = '/:sections/:slug/'
+  posts = '/posts/:slug/'
   hilos = '/:sections/:slug/'
   projects = '/projects/:slug/'
   events = '/events/:slug/'

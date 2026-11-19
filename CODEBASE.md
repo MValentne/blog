@@ -61,7 +61,7 @@ Lo que **ya no está** (y por qué):
 │   ├── _index.md          # home
 │   ├── about.md           # Sobre mí
 │   ├── links.md           # enlaces
-│   ├── posts/             # posts del blog (con subcarpetas históricas)
+│   ├── posts/             # posts del blog (archivos sueltos, sin subcarpetas)
 │   ├── hilos/             # cuaderno de estudio (series = carpetas con _index.md)
 │   ├── projects/          # showcase de proyectos
 │   └── events/            # charlas, cursos, hackathons
@@ -101,7 +101,7 @@ Lo que **ya no está** (y por qué):
 | `locale = 'es-ar'` | Idioma del atributo `lang` que escribe XMin en `<html>`. |
 | `title` | Título del sitio. Aparece como sufijo en `<title>`. |
 | `theme = 'hugo-xmin'` | Nombre de la carpeta en `themes/`. |
-| `[permalinks]` | Fija las URLs históricas: `:sections` conserva la subcarpeta (por eso `/posts/valen/...` sigue existiendo). |
+| `[permalinks]` | Posts: `/posts/:slug/` (sin carpeta de autor). Hilos: `/:sections/:slug/` (la serie sí va en la URL, porque es parte del contenido). |
 | `[taxonomies]` | Declara `tags` y `categories` como taxonomías → Hugo genera `/tags/` y `/categories/` automáticamente. |
 | `goldmark.renderer.unsafe = true` | Permite HTML dentro del Markdown (necesario para `figure`, iframes, etc.). |
 | `goldmark.extensions.passthrough` | Deja pasar `$...$`, `$$...$$`, `\(...\)` y `\[...\]` sin que Markdown los modifique. Es lo que hace que las fórmulas funcionen. |
@@ -156,7 +156,7 @@ Muestra `content/_index.md` y los 10 últimos posts. Usa `where site.RegularPage
 
 ### `layouts/posts/list.html` — archivo de posts
 
-Usa `.RegularPages.ByDate.Reverse` en lugar de `.Pages` para incluir posts de subcarpetas (`posts/valen/`, `posts/luca/`).
+Usa `.RegularPages.ByDate.Reverse` para listar solo los posts ordenados por fecha, sin contar la página de sección.
 
 ### `layouts/hilos/list.html` — cuaderno
 
