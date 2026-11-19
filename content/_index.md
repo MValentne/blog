@@ -7,4 +7,4 @@ date = 2026-11-19
 
 Apuntes de cursada, proyectos y eventos. Antes este blog era de varios; ahora es solo mío.
 
-[Sobre mí]({{< relref "about.md" >}}) · [Apuntes]({{ "apuntes/" | relURL }}) · [Proyectos]({{< relref "projects/_index.md" >}}) · [Posts]({{ "posts/" | relURL }})
+[Sobre mí]({{< relref "about.md" >}}) · [Apuntes]({{< relurl "apuntes/" >}}) · [Proyectos]({{< relref "projects/_index.md" >}}) · [Posts]({{< relurl "posts/" >}})

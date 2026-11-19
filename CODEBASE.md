@@ -77,7 +77,9 @@ Lo que **ya no está** (y por qué):
 │   ├── apuntes/list.html
 │   ├── projects/{list,single}.html
 │   ├── events/{list,single}.html
-│   └── shortcodes/qa.html    # pregunta / ejercicio desplegable
+│   └── shortcodes/
+│       ├── qa.html           # pregunta / ejercicio desplegable
+│       └── relurl.html       # {{< relurl "..." >}} → URL con /blog/
 ├── static/                # Archivos que se copian tal cual a public/
 │   ├── favicon*, *.png, site.webmanifest
 ├── themes/hugo-xmin/      # SUBMODULE (git@github.com:yihui/hugo-xmin.git)
@@ -275,6 +277,7 @@ draft = true
 | Fórmulas | passthrough + KaTeX | `$x^2$`, `$$\int f$$` |
 | YouTube | shortcode nativo de Hugo | `{{< youtube ID >}}` |
 | `relref` | shortcode nativo de Hugo | `{{< relref "about.md" >}}` — genera la URL con `/blog/` incluido |
+| `relurl` | `layouts/shortcodes/relurl.html` | `{{< relurl "posts/" >}}` — aplica `relURL` a una ruta. **No** escribir `{{ "posts/" \| relURL }}` en Markdown: Hugo no lo procesa y se publica literal. |
 | Webamp | **eliminado** | ya no existe; el post de Low Roar quedó como reseña |
 
 Para un link interno siempre usá `relref` o `{{ "ruta/" | relURL }}`. Nunca escribas `/blog/...` a mano en el contenido: si el repo vuelve a cambiar de nombre, `baseURL` se actualiza solo y los links siguen vivos.
