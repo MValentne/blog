@@ -362,6 +362,8 @@ El submodule quedó fijado en el commit `1744c80` (master de XMin). El único pa
 
 Editar `content/about.md`. No hay plantilla especial: es Markdown normal. Lo mismo para proyectos y eventos.
 
+La página busca adaptarse al tema: el `<h1>` lo pone XMin desde el `title` del frontmatter (por eso el Markdown arranca con un párrafo, no con otro `#`). No lleva `date`: XMin solo muestra la fecha en `.article-meta` si el frontmatter la define, y una página "Sobre mí" no es un post fechado. Las secciones son `##` con listas, que es el markup que XMin ya estiliza.
+
 ### Agregar un tipo de contenido nuevo
 
 1. `hugo new <seccion>/ejemplo.md`.

@@ -1,11 +1,8 @@
 +++
 title = 'Sobre mí'
-date = 2026-11-19
 +++
 
-# Valentino Mendé
-
-Estudio sistemas en Buenos Aires.
+Soy Valentino Mendé. Estudio sistemas en Buenos Aires y uso este blog para guardar apuntes de la universidad y escribir sobre cosas mías.
 
 ## Estudio
 
@@ -17,4 +14,8 @@ Estudio sistemas en Buenos Aires.
 - GitHub: [MValentne](https://github.com/MValentne)
 - Email: *[completar]*
 
-Los apuntes de la universidad están en [Apuntes]({{< relurl "apuntes/" >}}), las cosas mías en [Posts]({{< relurl "posts/" >}}) y los trabajos en [Proyectos]({{< relref "projects/_index.md" >}}).
+## En este blog
+
+- [Apuntes]({{< relurl "apuntes/" >}}) — universidad.
+- [Posts]({{< relurl "posts/" >}}) — cosas mías.
+- [Proyectos]({{< relref "projects/_index.md" >}}) — trabajos.
