@@ -61,12 +61,12 @@ Lo que **ya no está** (y por qué):
 │   ├── _index.md          # home
 │   ├── about.md           # Sobre mí
 │   ├── links.md           # enlaces
-│   ├── posts/             # posts del blog (archivos sueltos, sin subcarpetas)
-│   ├── hilos/             # cuaderno de estudio (series = carpetas con _index.md)
+│   ├── posts/             # posts personales (cosas mías)
+│   ├── apuntes/           # apuntes de la universidad
 │   ├── projects/          # showcase de proyectos
 │   └── events/            # charlas, cursos, hackathons
 ├── layouts/               # Plantillas propias (sobrescriben las del tema)
-│   ├── index.html         # home: últimos posts + apuntes
+│   ├── index.html         # home: últimos posts
 │   ├── _partials/
 │   │   └── head_custom.html  # favicons, dos ajustes a XMin, KaTeX, Mermaid
 │   ├── _default/_markup/
@@ -74,13 +74,11 @@ Lo que **ya no está** (y por qué):
 │   ├── _default/terms.html   # índice de tags/categorías, sin fechas
 │   ├── _default/term.html    # páginas individuales de tag/categoría, sin fechas
 │   ├── posts/list.html
-│   ├── hilos/list.html
+│   ├── apuntes/list.html
 │   ├── projects/{list,single}.html
 │   ├── events/{list,single}.html
 │   └── shortcodes/qa.html    # pregunta / ejercicio desplegable
 ├── static/                # Archivos que se copian tal cual a public/
-│   ├── css/style.css      # copia extendida del CSS de XMin
-│   ├── css/fonts.css      # tipografías del sistema
 │   ├── favicon*, *.png, site.webmanifest
 ├── themes/hugo-xmin/      # SUBMODULE (git@github.com:yihui/hugo-xmin.git)
 ├── hugo.toml              # configuración del sitio
@@ -101,7 +99,7 @@ Lo que **ya no está** (y por qué):
 | `locale = 'es-ar'` | Idioma del atributo `lang` que escribe XMin en `<html>`. |
 | `title` | Título del sitio. Aparece como sufijo en `<title>`. |
 | `theme = 'hugo-xmin'` | Nombre de la carpeta en `themes/`. |
-| `[permalinks]` | Posts: `/posts/:slug/` (sin carpeta de autor). Hilos: `/:sections/:slug/` (la serie sí va en la URL, porque es parte del contenido). |
+| `[permalinks]` | Posts y apuntes: `/<sección>/:slug/` (sin carpetas intermedias). Proyectos y eventos: igual. |
 | `[taxonomies]` | Declara `tags` y `categories` como taxonomías → Hugo genera `/tags/` y `/categories/` automáticamente. |
 | `goldmark.renderer.unsafe = true` | Permite HTML dentro del Markdown (necesario para `figure`, iframes, etc.). |
 | `goldmark.extensions.passthrough` | Deja pasar `$...$`, `$$...$$`, `\(...\)` y `\[...\]` sin que Markdown los modifique. Es lo que hace que las fórmulas funcionen. |
@@ -158,9 +156,9 @@ Muestra `content/_index.md` y los 10 últimos posts. Usa `where site.RegularPage
 
 Usa `.RegularPages.ByDate.Reverse` para listar solo los posts ordenados por fecha, sin contar la página de sección.
 
-### `layouts/hilos/list.html` — cuaderno
+### `layouts/apuntes/list.html` — apuntes
 
-Sirve tanto para `/hilos/` (muestra las series) como para `/hilos/<serie>/` (muestra las entradas). La magia está en `.Pages`: en Hugo significa "los hijos directos de la sección actual".
+Igual que el de posts, pero para `content/apuntes/`. La diferencia entre ambas secciones es de contenido, no de plantilla: **apuntes** son apuntes de la universidad (estadística, análisis matemático, investigación); **posts** son cosas personales.
 
 ### `layouts/projects/*` y `layouts/events/*`
 
@@ -207,12 +205,12 @@ Un *render hook*: transforma todo bloque ```` ```mermaid ```` en `<pre class="me
 | Home | `content/_index.md` | `/blog/` | `index.html` |
 | Sobre mí | `content/about.md` | `/blog/about/` | XMin `single.html` |
 | Posts | `content/posts/` | `/blog/posts/` | `posts/list.html` |
-| Apuntes (cuaderno de estudio) | `content/hilos/` | `/blog/hilos/` | `hilos/list.html` |
+| Apuntes | `content/apuntes/` | `/blog/apuntes/` | `apuntes/list.html` |
 | Proyectos | `content/projects/` | `/blog/projects/` | `projects/list.html` |
 | Eventos | `content/events/` | `/blog/events/` | `events/list.html` |
 | Tags / Categorías | (taxonomías) | `/blog/tags/`, `/blog/categories/` | `_default/terms.html` + `_default/term.html` (sin fechas) |
 
-Un **hilo** es una carpeta adentro de `content/hilos/` con su `_index.md`. Ese `_index.md` es la portada de la serie y los `.md` de al lado son las entradas. Los hilos existentes (`estadistica-II`, `examen-mateIII-teorico`, `analisis-computacional-de-distancias-lexicas-mediante-grafos`) se conservaron con sus URLs.
+Los apuntes de cursada (Estadística II, Análisis Matemático) y la investigación de distancias léxicas viven en `content/apuntes/`. Los posts (`content/posts/`) son cosas personales: música, viajes, dibujos, teoría del sitio. La distinción es de contenido, no de formato: ambos usan la misma plantilla de lista y se agrupan por `tags`/`categories`.
 
 `content/events/ejemplo-evento.md` está en `draft = true`: es la plantilla comentada, no se publica.
 
@@ -299,9 +297,9 @@ hugo server -D
 
 # 2. crear contenido
 hugo new posts/mi-nuevo-post.md
+hugo new apuntes/mi-apunte.md
 hugo new projects/mi-proyecto.md
 hugo new events/mi-evento.md
-hugo new hilos/materia/primera-clase.md   # una serie nueva dentro del cuaderno
 
 # 3. escribir en el .md, pasar draft = false cuando esté listo
 
@@ -373,7 +371,7 @@ Editar `content/about.md`. No hay plantilla especial: es Markdown normal. Lo mis
 | Término | Significado |
 |---|---|
 | **Frontmatter** | Bloque de metadatos al principio del `.md` (`+++` en TOML). |
-| **Section** | Agrupación por carpeta dentro de `content/`. `posts`, `hilos`, etc. |
+| **Section** | Agrupación por carpeta dentro de `content/`. `posts`, `apuntes`, `projects`, etc. |
 | **`_index.md`** | Archivo que convierte una carpeta en sección y define su portada. |
 | **RegularPage** | Página de contenido (post, apunte, proyecto), no sección ni taxonomía. |
 | **Partial** | Fragmento HTML reutilizable (`header.html`, `footer.html`). |

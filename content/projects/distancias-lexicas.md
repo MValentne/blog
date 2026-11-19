@@ -9,4 +9,4 @@ draft = false
 
 Trabajo para Inglés Técnico II: un grafo de distancias léxicas calculadas con Levenshtein.
 
-Las notas están en el hilo [Análisis computacional de distancias léxicas mediante grafos]({{< relref "hilos/analisis-computacional-de-distancias-lexicas-mediante-grafos/_index.md" >}}).
+Los apuntes están en [Análisis computacional de distancias léxicas mediante grafos]({{< relref "apuntes/analisis-computacional-de-distancias-lexicas-mediante-grafos.md" >}}).

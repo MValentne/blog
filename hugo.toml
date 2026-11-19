@@ -7,10 +7,10 @@ locale = 'es-ar'
 title = 'Valentino Mendé | Blog'
 theme = 'hugo-xmin'
 
-# Los posts van directo a /posts/<slug>/; los hilos conservan su serie en la URL.
+# Todo el contenido va a /<sección>/<slug>/.
 [permalinks]
   posts = '/posts/:slug/'
-  hilos = '/:sections/:slug/'
+  apuntes = '/apuntes/:slug/'
   projects = '/projects/:slug/'
   events = '/events/:slug/'
 
@@ -62,7 +62,7 @@ theme = 'hugo-xmin'
 
 [[menu.main]]
   name = 'Apuntes'
-  url = 'hilos/'
+  url = 'apuntes/'
   weight = 5
 
 [[menu.main]]

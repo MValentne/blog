@@ -26,7 +26,7 @@ git submodule update --init --recursive
 
 ```bash
 hugo new posts/mi-post.md
-hugo new hilos/materia/clase.md
+hugo new apuntes/mi-apunte.md
 hugo new projects/mi-proyecto.md
 hugo new events/mi-evento.md
 ```
