@@ -62,7 +62,7 @@ Lo que **ya no está** (y por qué):
 │   ├── about.md           # Sobre mí
 │   ├── links.md           # enlaces
 │   ├── posts/             # posts personales (cosas mías)
-│   ├── apuntes/           # apuntes de la universidad
+│   ├── apuntes/           # cuadernos universitarios (carpeta por tema)
 │   ├── projects/          # showcase de proyectos
 │   └── events/            # charlas, cursos, hackathons
 ├── layouts/               # Plantillas propias (sobrescriben las del tema)
@@ -99,7 +99,7 @@ Lo que **ya no está** (y por qué):
 | `locale = 'es-ar'` | Idioma del atributo `lang` que escribe XMin en `<html>`. |
 | `title` | Título del sitio. Aparece como sufijo en `<title>`. |
 | `theme = 'hugo-xmin'` | Nombre de la carpeta en `themes/`. |
-| `[permalinks]` | Posts y apuntes: `/<sección>/:slug/` (sin carpetas intermedias). Proyectos y eventos: igual. |
+| `[permalinks]` | Posts, proyectos y eventos: `/<sección>/:slug/`. Apuntes: `/:sections/:slug/`, para que la URL conserve el cuaderno (`/apuntes/estadistica-ii/...`). |
 | `[taxonomies]` | Declara `tags` y `categories` como taxonomías → Hugo genera `/tags/` y `/categories/` automáticamente. |
 | `goldmark.renderer.unsafe = true` | Permite HTML dentro del Markdown (necesario para `figure`, iframes, etc.). |
 | `goldmark.extensions.passthrough` | Deja pasar `$...$`, `$$...$$`, `\(...\)` y `\[...\]` sin que Markdown los modifique. Es lo que hace que las fórmulas funcionen. |
@@ -158,7 +158,7 @@ Usa `.RegularPages.ByDate.Reverse` para listar solo los posts ordenados por fech
 
 ### `layouts/apuntes/list.html` — apuntes
 
-Igual que el de posts, pero para `content/apuntes/`. La diferencia entre ambas secciones es de contenido, no de plantilla: **apuntes** son apuntes de la universidad (estadística, análisis matemático, investigación); **posts** son cosas personales.
+Igual que el de posts, pero usa `.Pages.ByDate.Reverse`: en `/apuntes/` muestra los cuadernos (subsecciones) y dentro de cada cuaderno muestra sus apuntes. La diferencia con posts es de contenido, no de diseño: **apuntes** son de la universidad; **posts** son cosas personales.
 
 ### `layouts/projects/*` y `layouts/events/*`
 
@@ -206,11 +206,12 @@ Un *render hook*: transforma todo bloque ```` ```mermaid ```` en `<pre class="me
 | Sobre mí | `content/about.md` | `/blog/about/` | XMin `single.html` |
 | Posts | `content/posts/` | `/blog/posts/` | `posts/list.html` |
 | Apuntes | `content/apuntes/` | `/blog/apuntes/` | `apuntes/list.html` |
+| Cuadernos | `content/apuntes/<tema>/` | `/blog/apuntes/<tema>/` | `apuntes/list.html` |
 | Proyectos | `content/projects/` | `/blog/projects/` | `projects/list.html` |
 | Eventos | `content/events/` | `/blog/events/` | `events/list.html` |
 | Tags / Categorías | (taxonomías) | `/blog/tags/`, `/blog/categories/` | `_default/terms.html` + `_default/term.html` (sin fechas) |
 
-Los apuntes de cursada (Estadística II, Análisis Matemático) y la investigación de distancias léxicas viven en `content/apuntes/`. Los posts (`content/posts/`) son cosas personales: música, viajes, dibujos, teoría del sitio. La distinción es de contenido, no de formato: ambos usan la misma plantilla de lista y se agrupan por `tags`/`categories`.
+Los apuntes de cursada (Estadística II, Análisis Matemático) y la investigación de distancias léxicas viven en `content/apuntes/`, organizados en **cuadernos**: una carpeta por tema con su `_index.md` de portada y los apuntes adentro. Los posts (`content/posts/`) son cosas personales: música, viajes, dibujos, teoría del sitio. La distinción es de contenido, no de formato: ambos comparten la plantilla de lista y los `tags`/`categories`.
 
 `content/events/ejemplo-evento.md` está en `draft = true`: es la plantilla comentada, no se publica.
 
@@ -297,7 +298,8 @@ hugo server -D
 
 # 2. crear contenido
 hugo new posts/mi-nuevo-post.md
-hugo new apuntes/mi-apunte.md
+hugo new apuntes/mi-tema/_index.md
+hugo new apuntes/mi-tema/primer-apunte.md
 hugo new projects/mi-proyecto.md
 hugo new events/mi-evento.md
 
