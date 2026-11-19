@@ -2,11 +2,9 @@
 date = '2026-07-24T15:40:37-03:00'
 draft = false
 title = 'Integrales Definidas'
-author = 'Valen'
-keywords = ["calculo", "integrales", "calculo integral"]
+author = 'Valentino'
+tags = ["calculo", "integrales", "calculo integral"]
 categories = ["Matematica"]
-toc = true
-tocBorder = true
 +++
 
 Las [integrales definidas](https://www.superprof.es/apuntes/escolar/matematicas/calculo/integrales/integral-definida.html) nos permiten llevar a la practica todo lo visto en el apartado de **Integrales Indefinidas**, ya que en vez de ver toda la familia de antiderivadas posibles para una funcion *f(x)*, empezamos a ver que la integral nos devuelve un valor puntual.

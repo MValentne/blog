@@ -2,11 +2,9 @@
 date = '2026-08-09T14:01:28-03:00'
 draft = false
 title = 'Analisis De Frecuencias Con Chi Cuadrado'
-author = 'Valen'
-keywords = ["chi-cuadrado", "prueba de hipotesis", "inferencia"]
+author = 'Valentino'
+tags = ["chi-cuadrado", "prueba de hipotesis", "inferencia"]
 categories = ["Estadistica"]
-toc = true
-tocBorder = true
 +++
 
 # Introduccion

@@ -2,8 +2,8 @@
 date = '2026-08-17T09:33:24-07:00'
 draft = false
 title = 'Pylot-The Carbon Ghost'
-author = 'Luca'
-keywords = ["Music", "New LP"]
+author = 'Valentino'
+tags = ["Music", "New LP"]
 categories = ["Musica"]
 +++
 

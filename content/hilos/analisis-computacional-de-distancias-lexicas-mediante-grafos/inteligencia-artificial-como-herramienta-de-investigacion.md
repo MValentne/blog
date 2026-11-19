@@ -2,8 +2,8 @@
 date = '2026-08-28T00:23:23-03:00'
 draft = false
 title = 'Inteligencia Artificial Como Herramienta De Investigacion'
-author = 'Valen'
-keywords = ["IA", "investigacion", "Agentes"]
+author = 'Valentino'
+tags = ["IA", "investigacion", "Agentes"]
 categories = ["Computacion"]
 +++
 

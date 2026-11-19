@@ -2,8 +2,8 @@
 date = '2026-08-17T10:28:34-07:00'
 draft = false
 title = 'Little Drawings'
-author = 'Luca'
-keywords = ["sketch"]
+author = 'Valentino'
+tags = ["sketch"]
 categories = ["Arte"]
 +++
 

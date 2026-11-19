@@ -2,14 +2,12 @@
 date = '2026-07-16T11:09:32-03:00'
 draft = false
 title = 'Derivadas'
-author = 'Valen'
-keywords = ["calculo", "derivadas", "calculo diferencial"]
+author = 'Valentino'
+tags = ["calculo", "derivadas", "calculo diferencial"]
 categories = ["Matematica"]
-toc = true
-tocBorder = true
 +++
 
-Basandonos en la teoria dada en [limites y continuidad](limites-y-continuidad), podemos dar el primer paso a lo que es el [calculo diferencial](https://es.wikipedia.org/wiki/C%C3%A1lculo_diferencial). El calculo diferencial, a grandes razgos, consiste en el analisis del cambio en una funcion. Una funcion puede incrementar, decrementar, o no tener un valor "muerto" donde su **pendiente** es cero.
+Basandonos en la teoria dada en [limites y continuidad]({{< relref "limites-y-continuidad.md" >}}), podemos dar el primer paso a lo que es el [calculo diferencial](https://es.wikipedia.org/wiki/C%C3%A1lculo_diferencial). El calculo diferencial, a grandes razgos, consiste en el analisis del cambio en una funcion. Una funcion puede incrementar, decrementar, o no tener un valor "muerto" donde su **pendiente** es cero.
 
 Se trata bastante con el concepto de [pendiente](https://es.wikipedia.org/wiki/Pendiente_(matem%C3%A1tica)), digase, el angulo de la [tangente](https://es.wikipedia.org/wiki/Tangente_(trigonometr%C3%ADa)), ya que ese sera nuestro indicador para indicar el estado de un valor puntual de la funcion.
 

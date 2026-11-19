@@ -2,8 +2,8 @@
 date = '2026-08-24T23:54:58-03:00'
 draft = false
 title = 'Album Low Roar-0'
-author = 'Valen'
-keywords = ["Low Roar", "WebAmp"]
+author = 'Valentino'
+tags = ["Low Roar", "musica"]
 categories = ["Musica"]
 +++
 
@@ -21,18 +21,3 @@ Hablare en este post sobre el [album 0](https://en.wikipedia.org/wiki/0_(album))
 
 ![Album-0](https://upload.wikimedia.org/wikipedia/en/thumb/a/a8/Low_Roar_%270%27_album_cover_art.jpg/250px-Low_Roar_%270%27_album_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)
 
-{{< webamp vis="true" >}}
-https://archive.org/download/low-roar-0-2014/01.%20Breathe%20In.mp3 | Low Roar | Breathe In | 455
-https://archive.org/download/low-roar-0-2014/02.%20Easy%20Way%20Out.mp3 | Low Roar | Easy Way Out | 289
-https://archive.org/download/low-roar-0-2014/03.%20Nobody%20Loves%20Me%20Like%20You.mp3 | Low Roar | Nobody Loves Me Like You | 356
-https://archive.org/download/low-roar-0-2014/04.%20I%27ll%20Keep%20Coming.mp3 | Low Roar | I'll Keep Coming | 354
-https://archive.org/download/low-roar-0-2014/05.%20Half%20Asleep.mp3 | Low Roar | Half Asleep | 436
-https://archive.org/download/low-roar-0-2014/06.%20Please%20Don%27t%20Stop%20%28Chapter%201%29.mp3 | Low Roar | Please Don't Stop (Chapter 1) | 281
-https://archive.org/download/low-roar-0-2014/07.%20I%27m%20Leaving.mp3 | Low Roar | I'm Leaving | 334
-https://archive.org/download/low-roar-0-2014/08.%20In%20the%20Morning.mp3 | Low Roar | In the Morning | 85
-https://archive.org/download/low-roar-0-2014/09.%20Phantoms.mp3 | Low Roar | Phantoms | 364
-https://archive.org/download/low-roar-0-2014/10.%20Anything%20You%20Need.mp3 | Low Roar | Anything You Need | 192
-https://archive.org/download/low-roar-0-2014/11.%20Dreamer.mp3 | Low Roar | Dreamer | 310
-https://archive.org/download/low-roar-0-2014/12.%20Vampire%20on%20My%20Fridge.mp3 | Low Roar | Vampire on My Fridge | 391
-https://archive.org/download/low-roar-0-2014/13.%20Please%20Don%27t%20Stop%20%28Chapter%202%29.mp3 | Low Roar | Please Don't Stop (Chapter 2) | 244
-{{< /webamp >}}

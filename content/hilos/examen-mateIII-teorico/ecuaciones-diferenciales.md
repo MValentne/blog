@@ -2,11 +2,9 @@
 date = '2026-07-26T14:10:53-03:00'
 draft = false
 title = 'Ecuaciones Diferenciales'
-author = 'Valen'
-keywords = ["calculo", "algebra"]
+author = 'Valentino'
+tags = ["calculo", "algebra"]
 categories = ["Matematica"]
-toc = true
-tocBorder = true
 +++
 
 Esta es la ultima unidad contenido de examen, por delante quedan algunos otros temas que seran vistos por interes propio; el enfoque de estudio principal llega hasta este capitulo (inclusivo).

@@ -2,8 +2,8 @@
 date = '2026-08-13T19:02:30-07:00'
 draft = false
 title = 'Photography trip'
-author = 'Luca'
-keywords = ["Fotos", "viaje"]
+author = 'Valentino'
+tags = ["Fotos", "viaje"]
 categories = ["Fotografia"]
 +++
 

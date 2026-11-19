@@ -2,11 +2,9 @@
 date = '2026-08-06T20:43:06-03:00'
 draft = false
 title = 'Inferencia Estadistica'
-author = 'Valen'
-keywords = ["inferencia", "repaso", "conceptos base"]
+author = 'Valentino'
+tags = ["inferencia", "repaso", "conceptos base"]
 categories = ["Estadistica"]
-toc = true
-tocBorder = true
 +++
 
 Primero que todo, quiero alivianar la formalidad de este hilo; no estaremos hablando sobre axiomas ni estaremos haciendo demostraciones con tanto rigor (a menos que me de una corazonada). Por lo que nos podremos centrar en el proposito principal de esta parte de la materia.

@@ -2,11 +2,9 @@
 date = '2026-08-10T18:17:40-03:00'
 draft = false
 title = 'Estadistica Descriptiva Bivariante Y Regresion Lineal'
-author = 'Valen'
-keywords = ["inferencia", "regresion"]
+author = 'Valentino'
+tags = ["inferencia", "regresion"]
 categories = ["Estadistica"]
-toc = true
-tocBorder = true
 +++
 
 # Introduccion

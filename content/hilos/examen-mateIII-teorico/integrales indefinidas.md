@@ -2,11 +2,9 @@
 date = '2026-07-22T12:28:12-03:00'
 draft = false
 title = 'Integrales Indefinidas'
-author = 'Valen'
-keywords = ["calculo", "integrales", "calculo integral"]
+author = 'Valentino'
+tags = ["calculo", "integrales", "calculo integral"]
 categories = ["Matematica"]
-toc = true
-tocBorder = true
 +++
 
 Anteriormente hablamos sobre infinidad e indeterminaciones con limites, y dimos calculo diferencial con derivadas y sus aplicaciones. Ahora introducimos un tema aplicado muy ampliamente en las mastematicas; el [calculo integral](https://es.wikipedia.org/wiki/Integraci%C3%B3n).

@@ -2,11 +2,9 @@
 date = '2026-07-13T18:11:20-03:00'
 draft = false
 title = 'Limites Y Continuidad'
-author = 'Valen'
-keywords = ["calculo", "limites", "continuidad"]
+author = 'Valentino'
+tags = ["calculo", "limites", "continuidad"]
 categories = ["Matematica"]
-toc = true
-tocBorder = true
 +++
 El interes de esta unidad es hablar sobre las bases fundamentales del calculo, en particular del concepto de limite, ya que todo se desarrolla a partir de ese concepto.
 
