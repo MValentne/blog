@@ -1,0 +1,19 @@
+{{ partial "header.html" . }}
+
+<div class="article-meta">
+  <h1><span class="title">{{ .Title }}</span></h1>
+  <h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>
+</div>
+
+<main>
+  <p class="entry-meta">
+    {{ with .Params.kind }}<span>{{ . }}</span>{{ end }}
+    {{ with .Params.place }}<span>{{ . }}</span>{{ end }}
+  </p>
+
+  {{ .Content }}
+
+  {{ with .Params.slides }}<p><a href="{{ . }}">Materiales / slides</a></p>{{ end }}
+</main>
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+<ul class="event-list">
+  {{ range .Pages.ByDate.Reverse }}
+  <li>
+    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ with .Params.kind }}<span class="entry-meta">{{ . }}</span>{{ end }}
+    {{ with .Params.place }}<span class="entry-meta">{{ . }}</span>{{ end }}
+  </li>
+  {{ end }}
+</ul>
+
+{{ partial "footer.html" . }}

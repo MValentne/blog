@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+
+<div class="article-meta">
+  <h1><span class="title">{{ .Title }}</span></h1>
+  {{ with .Params.year }}<h2 class="date">{{ . }}</h2>{{ end }}
+</div>
+
+<main>
+  <p class="entry-meta">
+    {{ with .Params.status }}<span>{{ . }}</span>{{ end }}
+    {{ with .Params.stack }}<span>{{ delimit . " · " }}</span>{{ end }}
+  </p>
+
+  {{ .Content }}
+
+  <p>
+    {{ with .Params.repo }}<a href="{{ . }}">Ver código</a>{{ end }}
+    {{ with .Params.demo }}<a href="{{ . }}">Ver demo</a>{{ end }}
+  </p>
+</main>
+
+{{ partial "footer.html" . }}

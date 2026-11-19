@@ -1,0 +1,27 @@
+{{ partial "header.html" . }}
+
+{{ .Content }}
+
+<h2>Últimos posts</h2>
+<ul>
+  {{ range first 8 (where site.RegularPages "Section" "posts") }}
+  <li>
+    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
+
+<h2>Cuaderno de estudio</h2>
+<ul>
+  {{ range first 5 (where site.RegularPages "Section" "hilos") }}
+  <li>
+    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
+
+<p><a href="{{ "projects/" | relURL }}">Ver proyectos</a> · <a href="{{ "events/" | relURL }}">Ver eventos</a> · <a href="{{ "about/" | relURL }}">Sobre mí / CV</a></p>
+
+{{ partial "footer.html" . }}

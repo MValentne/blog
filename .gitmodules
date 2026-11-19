@@ -1,3 +1,4 @@
-[submodule "hugo-theme-nostyleplease"]
-	path = hugo-theme-nostyleplease
-	url = git@github.com:hanwenguo/hugo-theme-nostyleplease.git
+[submodule "themes/hugo-xmin"]
+	path = themes/hugo-xmin
+	url = git@github.com:yihui/hugo-xmin.git
+	branch = master

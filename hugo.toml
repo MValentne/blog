@@ -1,30 +1,87 @@
-baseURL = 'https://mvalentne.github.io/Blog_TheLearnerBoys/'
-locale = 'en-us'
-title = 'The Learner Boys'
-theme = "hugo-theme-nostyleplease"
+# ============================================================
+# Configuración del blog personal de Valentino
+# Documentada línea por línea en CODEBASE.md
+# ============================================================
+baseURL = 'https://mvalentne.github.io/blog/'
+locale = 'es-ar'
+title = 'Valentino | Blog'
+theme = 'hugo-xmin'
+enableRobotsTXT = true
 
-# Categorias y etiquetas de post
+# Los posts mantienen sus URLs históricas aunque cambie el tema.
+[permalinks]
+  posts = '/:sections/:slug/'
+  hilos = '/:sections/:slug/'
+  projects = '/projects/:slug/'
+  events = '/events/:slug/'
+
 [taxonomies]
-    keyword = "keywords"
-    category = "categories"
-    author = "authors"
+  tag = 'tags'
+  category = 'categories'
 
-# Lo hago inseguro, es estatico y de colaboracion cerrada.
-# Nos permite meter html en medio del markdown, GIFS LOQUISIMOS
+# Permite HTML embebido en Markdown (tablas, iframes, figure, etc.).
 [markup.goldmark.renderer]
-    unsafe = true
+  unsafe = true
+
+# Fórmulas: el passthrough evita que Markdown "coma" guiones bajos y barras.
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)'], ['$', '$']]
+
+[markup.highlight]
+  style = 'github'
+  noClasses = false
 
 [markup.tableOfContents]
-    startLevel = 1
-    endLevel = 6
+  startLevel = 2
+  endLevel = 4
 
-# Apariencia del sistema, (light / dark / auto)
 [params]
-  [params.theme_config]
-    appearance = "light"
+  author = 'Valentino'
+  description = 'Cuaderno de estudio, proyectos y cosas que aprendo. Valentino.'
+  footer = '© [Valentino](https://github.com/MValentne) {Year} · hecho con [Hugo](https://gohugo.io) + [XMin](https://github.com/yihui/hugo-xmin)'
 
-# Entrada de menú para la sección de Hilos
+# ------------------------------------------------------------
+# Menú superior (XMin lo renderiza en su partial header.html)
+# ------------------------------------------------------------
 [[menu.main]]
-  name = "Hilos"
-  url = "/hilos/"
-  weight = 15
+  name = 'Inicio'
+  url = ''
+  weight = 1
+
+[[menu.main]]
+  name = 'Sobre mí'
+  url = 'about/'
+  weight = 2
+
+[[menu.main]]
+  name = 'Proyectos'
+  url = 'projects/'
+  weight = 3
+
+[[menu.main]]
+  name = 'Eventos'
+  url = 'events/'
+  weight = 4
+
+[[menu.main]]
+  name = 'Cuaderno'
+  url = 'hilos/'
+  weight = 5
+
+[[menu.main]]
+  name = 'Posts'
+  url = 'posts/'
+  weight = 6
+
+[[menu.main]]
+  name = 'Tags'
+  url = 'tags/'
+  weight = 7
+
+[[menu.main]]
+  name = 'Enlaces'
+  url = 'links/'
+  weight = 8
