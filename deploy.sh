@@ -67,7 +67,7 @@ else
   echo "Subiendo cambios a GitHub..."
   git push origin gh-pages
   echo ""
-  echo "==> ¡Listo! Sitio publicado en: https://mvalentne.github.io/Blog_TheLearnerBoys/"
+  echo "==> ¡Listo! Sitio publicado en: https://mvalentne.github.io/blog/"
 fi
 
 cd "$REPO_ROOT"

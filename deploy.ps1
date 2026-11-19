@@ -94,7 +94,7 @@ try {
         Write-Host "Subiendo cambios a GitHub..." -ForegroundColor Cyan
         git push origin gh-pages
         Write-Host ""
-        Write-Host "==> ¡Listo! Sitio publicado en: https://mvalentne.github.io/Blog_TheLearnerBoys/" -ForegroundColor Green
+        Write-Host "==> ¡Listo! Sitio publicado en: https://mvalentne.github.io/blog/" -ForegroundColor Green
     }
 } finally {
     Pop-Location
