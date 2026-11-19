@@ -2,10 +2,30 @@
 
 <h1>{{ .Title }}</h1>
 
-<ul class="terms">
+{{ if eq .Data.Plural "tags" }}
+<p><input id="tag-filter" type="search" placeholder="Filtrar tags" aria-label="Filtrar tags"></p>
+{{ end }}
+
+<ul class="terms" id="tag-list">
   {{ range .Pages }}
   <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ len .Pages }})</li>
   {{ end }}
 </ul>
+
+{{ if eq .Data.Plural "tags" }}
+<script>
+(function () {
+  var input = document.getElementById('tag-filter');
+  var items = document.querySelectorAll('#tag-list li');
+  input.addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    items.forEach(function (li) {
+      var name = li.querySelector('a').textContent.toLowerCase();
+      li.hidden = name.indexOf(q) === -1;
+    });
+  });
+})();
+</script>
+{{ end }}
 
 {{ partial "footer.html" . }}

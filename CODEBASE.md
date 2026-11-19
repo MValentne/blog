@@ -68,7 +68,7 @@ Lo que **ya no está** (y por qué):
 ├── layouts/               # Plantillas propias (sobrescriben las del tema)
 │   ├── index.html         # home: últimos posts + apuntes
 │   ├── _partials/
-│   │   └── head_custom.html  # favicons, separación del menú, KaTeX, Mermaid
+│   │   └── head_custom.html  # favicons, dos ajustes a XMin, KaTeX, Mermaid
 │   ├── _default/_markup/
 │   │   └── render-codeblock-mermaid.html  # ```mermaid -> <pre class="mermaid">
 │   ├── _default/terms.html   # índice de tags/categorías, sin fechas
@@ -170,7 +170,7 @@ Listados y páginas individuales con campos propios (`year`, `status`, `stack`, 
 
 XMin trae un `list.html` que reutiliza el formato de posts y por eso muestra la fecha de cada entrada. Acá se sobrescribe con dos plantillas propias que no la muestran:
 
-- `terms.html` es el índice (`/tags/`, `/categories/`): lista cada término con su cantidad de páginas entre paréntesis.
+- `terms.html` es el índice (`/tags/`, `/categories/`): lista cada término con su cantidad de páginas entre paréntesis. En `/tags/` agrega un `<input type="search">` con un script que oculta los `<li>` cuyo tag no contiene lo escrito (sin librerías; usa el atributo `hidden`).
 - `term.html` es la página de un término (`/tags/musica/`, `/categories/musica/`): lista los títulos con link, sin fecha.
 
 Son las únicas plantillas de `_default/` del proyecto; el resto viene del tema.
@@ -180,7 +180,7 @@ Son las únicas plantillas de `_default/` del proyecto; el resto viene del tema.
 XMin deja dos hooks vacíos: `head_custom.html` (dentro de `<head>`) y `foot_custom.html` (antes de cerrar `<body>`). Acá metemos:
 
 - favicons + `site.webmanifest`;
-- una regla `<style>.menu li { margin-right: 0.5em; }</style>`: con `--minify`, Hugo comprime los `<li>` del menú y los ítems quedan pegados;
+- dos reglas mínimas en un `<style>`: `.menu li { margin-right: 0.5em; }` (con `--minify` los ítems del menú quedaban pegados) y `.article-meta { background: none; padding: 0; }` (XMin le pone un fondo gris al bloque título + fecha);
 - KaTeX con `auto-render` (carga `defer`, busca delimitadores en el DOM);
 - Mermaid como módulo ES, **solo si la página contiene la palabra `mermaid`** (ahorra ~1 MB en el resto).
 
@@ -284,7 +284,7 @@ Para un link interno siempre usá `relref` o `{{ "ruta/" | relURL }}`. Nunca esc
 
 ## 9. Estilos
 
-No hay CSS propio. Se usa `themes/hugo-xmin/static/css/style.css` (51 líneas) y `fonts.css` directamente del submodule, sin copias ni variables agregadas. Las plantillas de listado usan el mismo markup que XMin (`<span class="date">`, `<ul>`), y el shortcode `qa` es un `<details>` sin clases.
+No hay hojas de estilo propias. Se usa `themes/hugo-xmin/static/css/style.css` (51 líneas) y `fonts.css` directamente del submodule, sin copias ni variables agregadas. Las únicas excepciones son las dos reglas de `head_custom.html`: el espacio entre los ítems del menú y la eliminación del fondo gris de `.article-meta`. Las plantillas de listado usan el mismo markup que XMin (`<span class="date">`, `<ul>`), y el shortcode `qa` es un `<details>` sin clases.
 
 Si en algún momento querés cambiar el look: copiá esos archivos a `static/css/` y editá la copia (Hugo prioriza `static/` del proyecto sobre el del tema). No hace falta tocar el submodule.
 
