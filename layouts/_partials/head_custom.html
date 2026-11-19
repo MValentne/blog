@@ -5,9 +5,15 @@
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
 <link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
 
-{{/* Ajustes mínimos sobre XMin: separar el menú y sacar el fondo gris del header. */}}
+{{/* Ajustes mínimos sobre XMin: pegar el menú a la línea, separar sus ítems y sacar el fondo gris del header. */}}
 <style>
+  .menu { margin: 0; }
   .menu li { margin-right: 0.5em; }
+  .menu li:last-child { margin-right: 0; }
+  @media (max-width: 700px) {
+    .menu a { padding: 4px; }
+    .menu li { margin-right: 0.25em; }
+  }
   .article-meta { background: none; padding: 0; }
 </style>
 
