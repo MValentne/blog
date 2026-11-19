@@ -1,12 +1,12 @@
 # Valentino | Blog
 
-Blog personal, cuaderno de estudio y showcase de proyectos. Hecho con [Hugo](https://gohugo.io/) y el tema mínimo [XMin](https://github.com/yihui/hugo-xmin).
+Blog personal: apuntes, proyectos y eventos. Hecho con [Hugo](https://gohugo.io/) y el tema [XMin](https://github.com/yihui/hugo-xmin).
 
 **Sitio:** <https://mvalentne.github.io/blog/>
 
 ## Arrancar
 
-Necesitás Git y Hugo (cualquier versión reciente con soporte para `resources.Get` y Sass no es necesaria: el CSS es plano).
+Necesitás Git y Hugo instalados.
 
 ```bash
 git clone --recurse-submodules git@github.com:MValentne/blog.git

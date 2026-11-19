@@ -1,19 +1,16 @@
 {{ partial "header.html" . }}
 
 <div class="article-meta">
-  <h1><span class="title">{{ .Title }}</span></h1>
-  <h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>
+<h1><span class="title">{{ .Title | markdownify }}</span></h1>
+<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>
 </div>
 
 <main>
-  <p class="entry-meta">
-    {{ with .Params.kind }}<span>{{ . }}</span>{{ end }}
-    {{ with .Params.place }}<span>{{ . }}</span>{{ end }}
-  </p>
+{{ with .Params.kind }}<p>{{ . }}</p>{{ end }}
+{{ with .Params.place }}<p>{{ . }}</p>{{ end }}
+{{ with .Params.slides }}<p><a href="{{ . }}">Materiales</a></p>{{ end }}
 
-  {{ .Content }}
-
-  {{ with .Params.slides }}<p><a href="{{ . }}">Materiales / slides</a></p>{{ end }}
+{{ .Content }}
 </main>
 
 {{ partial "footer.html" . }}

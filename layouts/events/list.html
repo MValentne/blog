@@ -4,13 +4,13 @@
 
 {{ .Content }}
 
-<ul class="event-list">
+<ul>
   {{ range .Pages.ByDate.Reverse }}
   <li>
     <span class="date">{{ .Date.Format "2006/01/02" }}</span>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    {{ with .Params.kind }}<span class="entry-meta">{{ . }}</span>{{ end }}
-    {{ with .Params.place }}<span class="entry-meta">{{ . }}</span>{{ end }}
+    {{ with .Params.kind }}{{ . }}{{ end }}
+    {{ with .Params.place }}({{ . }}){{ end }}
   </li>
   {{ end }}
 </ul>

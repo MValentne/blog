@@ -3,12 +3,12 @@ title = 'Blog personal'
 date = 2026-11-19
 year = 2026
 status = 'en curso'
-stack = ['Hugo', 'XMin', 'Markdown', 'GitHub Pages']
+stack = ['Hugo', 'XMin', 'Markdown']
 repo = 'https://github.com/MValentne/blog'
 demo = 'https://mvalentne.github.io/blog/'
 draft = false
 +++
 
-Este sitio. Empezó como un blog compartido con un tema pesado y hoy es un cuaderno personal armado con [XMin](https://github.com/yihui/hugo-xmin), un tema de unas 140 líneas.
+Este sitio. Empezó siendo compartido y con otro tema; ahora usa XMin y es personal.
 
-Lo interesante acá no es el diseño sino el sistema: Markdown entra, Hugo genera HTML estático y GitHub Pages lo publica. Todo el funcionamiento está explicado en [CODEBASE.md](https://github.com/MValentne/blog/blob/master/CODEBASE.md).
+El código está en [github.com/MValentne/blog](https://github.com/MValentne/blog). Cómo está armado: [CODEBASE.md](https://github.com/MValentne/blog/blob/master/CODEBASE.md).

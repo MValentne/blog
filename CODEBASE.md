@@ -43,7 +43,7 @@ Lo que **ya no está** (y por qué):
 | `hugo-theme-nostyleplease` | `themes/hugo-xmin` (submodule) | Pedido de estilo minimalista. |
 | `content/pared/`, `layouts/pared/`, marcos y tapizado | eliminado | El mural de arte no se usa más. |
 | `shortcodes/webamp.html` y el post `webamp-en-el-blog.md` | eliminados | El reproductor Webamp no se usa más. El post de Low Roar conserva su texto, pero sin el reproductor. |
-| `assets/css/main.scss` (676 líneas Sass) | `static/css/style.css` (~140 líneas CSS) | XMin no compila Sass. |
+| `assets/css/main.scss` (676 líneas Sass) | CSS de XMin, sin copias ni overrides | Se usa el `style.css` y `fonts.css` del tema tal cual. |
 | Sidebar, widgets de categorías y `data/menu.toml` | menú en `hugo.toml` | XMin usa `[[menu.main]]`. |
 | Autores múltiples | `author = 'Valentino'` en todos los archivos | El blog pasó a ser personal. Los textos de otros autores se conservan. |
 
@@ -103,9 +103,8 @@ Lo que **ya no está** (y por qué):
 | `[taxonomies]` | Declara `tags` y `categories` como taxonomías → Hugo genera `/tags/` y `/categories/` automáticamente. |
 | `goldmark.renderer.unsafe = true` | Permite HTML dentro del Markdown (necesario para `figure`, iframes, etc.). |
 | `goldmark.extensions.passthrough` | Deja pasar `$...$`, `$$...$$`, `\(...\)` y `\[...\]` sin que Markdown los modifique. Es lo que hace que las fórmulas funcionen. |
-| `markup.highlight` | Resaltado de código con estilo `github`, usando clases CSS. |
-| `markup.tableOfContents` | Niveles 2 a 4 (Hugo lo usa si un tema/shortcode pide `.TableOfContents`). |
-| `[params]` | `description` (meta description), `author` y `footer` (XMin reemplaza `{Year}` por el año actual y aplica Markdown). |
+| `markup.highlight.codeFences = false` | Igual que el exampleSite de XMin: bloques de código sin resaltado extra. |
+| `[params]` | `description` y `footer`. XMin reemplaza `{Year}` por el año actual. |
 | `[[menu.main]]` | El menú superior. XMin itera `.Site.Menus.main` en su partial `header.html`. `url` se pasa por `relURL`, así que no lleva `/blog/`. |
 
 Para agregar una entrada al menú: copiar un bloque `[[menu.main]]`, incrementar `weight` (menor = más a la izquierda).
@@ -273,15 +272,9 @@ Para un link interno siempre usá `relref` o `{{ "ruta/" | relURL }}`. Nunca esc
 
 ## 9. Estilos
 
-XMin trae `static/css/style.css` (51 líneas) y `fonts.css`. Como Hugo prioriza `static/` del proyecto sobre el del tema, acá hay una copia extendida:
+No hay CSS propio. Se usa `themes/hugo-xmin/static/css/style.css` (51 líneas) y `fonts.css` directamente del submodule, sin copias ni variables agregadas. Las plantillas de listado usan el mismo markup que XMin (`<span class="date">`, `<ul>`), y el shortcode `qa` es un `<details>` sin clases.
 
-- **Paleta:** papel cálido `#faf9f7`, tinta `#1c1917`, acento terracota `#8a3b1e`, neutros con matiz. Un solo color de acento, usado en links, citas y badges.
-- **Tipografía:** XMin usa Optima/Candara para cuerpo; los títulos van en serif editorial del sistema (Palatino/Georgia). Sin fuentes externas.
-- **Componentes propios:** `.entry-card` (proyectos), `.event-list`, `.entry-meta` (etiquetas en mayúsculas), `.qa-box`.
-- **Accesibilidad:** foco visible en links, contraste AA, `overflow-x: auto` en `pre`, imágenes con `height: auto`.
-- **Mobile:** `body { max-width: 800px; padding: 1em }` de XMin + un breakpoint a 480px.
-
-Si querés cambiar el look, editá estos dos archivos: no hace falta tocar el submodule.
+Si en algún momento querés cambiar el look: copiá esos archivos a `static/css/` y editá la copia (Hugo prioriza `static/` del proyecto sobre el del tema). No hace falta tocar el submodule.
 
 ---
 
@@ -348,7 +341,7 @@ Al clonar de cero, **siempre** con `--recurse-submodules`; si ya clonaste sin la
 git submodule update --init --recursive
 ```
 
-El submodule quedó fijado en el commit `1744c80` (master de XMin). Los CSS y partials propios del repo sobrescriben los del tema, así que una actualización upstream no debería romper el sitio; igual, corré `hugo --minify` después.
+El submodule quedó fijado en el commit `1744c80` (master de XMin). El único partial propio es `head_custom.html`; el CSS viene del tema. Después de actualizar, corré `hugo --minify` para verificar.
 
 ### Cambiar el CV
 

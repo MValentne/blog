@@ -5,6 +5,6 @@ date = 2026-11-19
 
 # Valentino
 
-Este es mi espacio para pensar en voz alta: apuntes de estudio, proyectos, eventos y cosas que voy aprendiendo. Empezó siendo un blog compartido y hoy es mi cuaderno público.
+Apuntes de cursada, proyectos y eventos. Antes este blog era de varios; ahora es solo mío.
 
-Si querés saber quién soy, pasá por [Sobre mí / CV]({{< relref "about.md" >}}). Si te interesa lo que hice, mirá [Proyectos]({{< relref "projects/_index.md" >}}).
+[Sobre mí]({{< relref "about.md" >}}) · [Proyectos]({{< relref "projects/_index.md" >}}) · [Cuaderno]({{< relref "hilos/_index.md" >}})

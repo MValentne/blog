@@ -6,7 +6,6 @@ baseURL = 'https://mvalentne.github.io/blog/'
 locale = 'es-ar'
 title = 'Valentino | Blog'
 theme = 'hugo-xmin'
-enableRobotsTXT = true
 
 # Los posts mantienen sus URLs históricas aunque cambie el tema.
 [permalinks]
@@ -30,18 +29,13 @@ enableRobotsTXT = true
     block = [['\[', '\]'], ['$$', '$$']]
     inline = [['\(', '\)'], ['$', '$']]
 
+# Como en el exampleSite de XMin: bloques de código sin resaltado extra.
 [markup.highlight]
-  style = 'github'
-  noClasses = false
-
-[markup.tableOfContents]
-  startLevel = 2
-  endLevel = 4
+  codeFences = false
 
 [params]
-  author = 'Valentino'
-  description = 'Cuaderno de estudio, proyectos y cosas que aprendo. Valentino.'
-  footer = '© [Valentino](https://github.com/MValentne) {Year} · hecho con [Hugo](https://gohugo.io) + [XMin](https://github.com/yihui/hugo-xmin)'
+  description = 'Apuntes y proyectos de Valentino.'
+  footer = '© Valentino {Year}'
 
 # ------------------------------------------------------------
 # Menú superior (XMin lo renderiza en su partial header.html)
@@ -77,11 +71,11 @@ enableRobotsTXT = true
   weight = 6
 
 [[menu.main]]
-  name = 'Tags'
-  url = 'tags/'
+  name = 'Categorías'
+  url = 'categories/'
   weight = 7
 
 [[menu.main]]
-  name = 'Enlaces'
-  url = 'links/'
+  name = 'Tags'
+  url = 'tags/'
   weight = 8

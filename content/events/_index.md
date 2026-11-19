@@ -3,9 +3,9 @@ title = 'Eventos'
 date = 2026-11-19
 +++
 
-Charlas, cursos, hackathons, congresos y cualquier excusa para aprender en público. Acá guardo la fecha, el lugar y los materiales de cada uno.
+Charlas, cursos y hackathons.
 
-Para agregar un evento:
+Para agregar uno:
 
 ```bash
 hugo new events/nombre-del-evento.md

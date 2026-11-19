@@ -4,20 +4,15 @@
 
 {{ .Content }}
 
-{{ range .Pages.ByDate.Reverse }}
-<article class="entry-card">
-  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-  <p class="entry-meta">
-    {{ with .Params.year }}<span>{{ . }}</span>{{ end }}
-    {{ with .Params.status }}<span>{{ . }}</span>{{ end }}
-    {{ with .Params.stack }}<span>{{ delimit . " · " }}</span>{{ end }}
-  </p>
-  {{ with .Summary }}<p>{{ . }}</p>{{ end }}
-  <p>
-    {{ with .Params.repo }}<a href="{{ . }}">código</a>{{ end }}
-    {{ with .Params.demo }}<a href="{{ . }}">demo</a>{{ end }}
-  </p>
-</article>
-{{ end }}
+<ul>
+  {{ range .Pages.ByDate.Reverse }}
+  <li>
+    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ with .Params.repo }}<a href="{{ . }}">[código]</a>{{ end }}
+    {{ with .Params.demo }}<a href="{{ . }}">[demo]</a>{{ end }}
+  </li>
+  {{ end }}
+</ul>
 
 {{ partial "footer.html" . }}
