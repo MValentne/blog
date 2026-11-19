@@ -32,9 +32,9 @@ El blog es una carpeta de archivos Markdown. Hugo los lee, aplica plantillas HTM
 
 Tres ideas que explican casi todas las decisiones:
 
-- **XMin es deliberadamente chico.** El tema aporta el HTML y el CSS base; todo lo demás (menú, listados, CV, proyectos) vive en este repo, con plantillas propias cortas.
+- **XMin es deliberadamente chico.** El tema aporta el HTML y el CSS base; todo lo demás (menú, listados, Sobre mí, proyectos) vive en este repo, con plantillas propias cortas.
 - **El contenido manda.** Agregar un post, apunte, proyecto o evento es crear un `.md` con `hugo new`. No se tocan plantillas.
-- **El repo es el CV.** `content/about.md` se edita como cualquier otro texto; el historial de Git es el registro del trabajo.
+- **La página Sobre mí vive en el repo.** `content/about.md` se edita como cualquier otro texto; el historial de Git es el registro del trabajo.
 
 Lo que **ya no está** (y por qué):
 
@@ -59,7 +59,7 @@ Lo que **ya no está** (y por qué):
 │   └── events.md          # eventos
 ├── content/               # TODO el contenido del sitio (Markdown)
 │   ├── _index.md          # home
-│   ├── about.md           # CV
+│   ├── about.md           # Sobre mí
 │   ├── links.md           # enlaces
 │   ├── posts/             # posts del blog (con subcarpetas históricas)
 │   ├── hilos/             # cuaderno de estudio (series = carpetas con _index.md)
@@ -152,7 +152,7 @@ Por eso las plantillas viejas del otro tema (que usaban `define`) tuvieron que r
 
 ### `layouts/index.html` — home
 
-Muestra `content/_index.md` y los 10 últimos posts. Usa `where site.RegularPages "Section" "posts"` para no mezclar CV/proyectos/eventos en el listado.
+Muestra `content/_index.md` y los 10 últimos posts. Usa `where site.RegularPages "Section" "posts"` para no mezclar Sobre mí/proyectos/eventos en el listado.
 
 ### `layouts/posts/list.html` — archivo de posts
 
@@ -205,7 +205,7 @@ Un *render hook*: transforma todo bloque ```` ```mermaid ```` en `<pre class="me
 | Sección | Carpeta | URL | Template de lista |
 |---|---|---|---|
 | Home | `content/_index.md` | `/blog/` | `index.html` |
-| CV | `content/about.md` | `/blog/about/` | XMin `single.html` |
+| Sobre mí | `content/about.md` | `/blog/about/` | XMin `single.html` |
 | Posts | `content/posts/` | `/blog/posts/` | `posts/list.html` |
 | Apuntes (cuaderno de estudio) | `content/hilos/` | `/blog/hilos/` | `hilos/list.html` |
 | Proyectos | `content/projects/` | `/blog/projects/` | `projects/list.html` |
@@ -355,9 +355,9 @@ git submodule update --init --recursive
 
 El submodule quedó fijado en el commit `1744c80` (master de XMin). El único partial propio es `head_custom.html`; el CSS viene del tema. Después de actualizar, corré `hugo --minify` para verificar.
 
-### Cambiar el CV
+### Cambiar Sobre mí
 
-Editar `content/about.md`. No hay plantilla de CV: es Markdown normal. Lo mismo para proyectos y eventos.
+Editar `content/about.md`. No hay plantilla especial: es Markdown normal. Lo mismo para proyectos y eventos.
 
 ### Agregar un tipo de contenido nuevo
 

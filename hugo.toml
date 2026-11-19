@@ -46,7 +46,7 @@ theme = 'hugo-xmin'
   weight = 1
 
 [[menu.main]]
-  name = 'CV'
+  name = 'Sobre mí'
   url = 'about/'
   weight = 2
 

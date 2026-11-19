@@ -1,5 +1,5 @@
 +++
-title = 'Sobre mí / CV'
+title = 'Sobre mí'
 date = 2026-11-19
 +++
 

@@ -31,7 +31,7 @@ hugo new projects/mi-proyecto.md
 hugo new events/mi-evento.md
 ```
 
-Editás el `.md`, dejás `draft = true` mientras escribís y lo pasás a `false` para publicar. El menú está en `hugo.toml`; el CV en `content/about.md`.
+Editás el `.md`, dejás `draft = true` mientras escribís y lo pasás a `false` para publicar. El menú está en `hugo.toml`; la página Sobre mí en `content/about.md`.
 
 ## Publicar
 
