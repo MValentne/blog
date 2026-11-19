@@ -63,12 +63,12 @@ Lo que **ya no está** (y por qué):
 │   ├── links.md           # enlaces
 │   ├── posts/             # posts personales (cosas mías)
 │   ├── apuntes/           # cuadernos universitarios (carpeta por tema)
-│   ├── projects/          # showcase de proyectos
+│   ├── projects/          # una carpeta por proyecto (con _index.md y entradas)
 │   └── events/            # charlas, cursos, hackathons
 ├── layouts/               # Plantillas propias (sobrescriben las del tema)
 │   ├── index.html         # home: últimos posts
 │   ├── _partials/
-│   │   └── head_custom.html  # favicons, dos ajustes a XMin, KaTeX, Mermaid
+│   │   └── head_custom.html  # favicons, ajustes al menú, KaTeX, Mermaid
 │   ├── _default/_markup/
 │   │   └── render-codeblock-mermaid.html  # ```mermaid -> <pre class="mermaid">
 │   ├── _default/terms.html   # índice de tags/categorías, sin fechas
@@ -101,7 +101,7 @@ Lo que **ya no está** (y por qué):
 | `locale = 'es-ar'` | Idioma del atributo `lang` que escribe XMin en `<html>`. |
 | `title` | Título del sitio. Aparece como sufijo en `<title>`. |
 | `theme = 'hugo-xmin'` | Nombre de la carpeta en `themes/`. |
-| `[permalinks]` | Posts, proyectos y eventos: `/<sección>/:slug/`. Apuntes: `/:sections/:slug/`, para que la URL conserve el cuaderno (`/apuntes/estadistica-ii/...`). |
+| `[permalinks]` | Posts y eventos: `/<sección>/:slug/`. Apuntes y proyectos: `/:sections/:slug/`, para que la URL conserve el cuaderno o el proyecto (`/apuntes/estadistica-ii/...`, `/projects/blog-personal/...`). |
 | `[taxonomies]` | Declara `tags` y `categories` como taxonomías → Hugo genera `/tags/` y `/categories/` automáticamente. |
 | `goldmark.renderer.unsafe = true` | Permite HTML dentro del Markdown (necesario para `figure`, iframes, etc.). |
 | `goldmark.extensions.passthrough` | Deja pasar `$...$`, `$$...$$`, `\(...\)` y `\[...\]` sin que Markdown los modifique. Es lo que hace que las fórmulas funcionen. |
@@ -164,7 +164,9 @@ Igual que el de posts, pero usa `.Pages.ByDate.Reverse`: en `/apuntes/` muestra 
 
 ### `layouts/projects/*` y `layouts/events/*`
 
-Listados y páginas individuales con campos propios (`year`, `status`, `stack`, `repo`, `demo`, `kind`, `place`, `slides`). Los datos vienen del frontmatter; el template solo los ordena y muestra.
+Listados y páginas individuales con campos propios (`year`, `status`, `stack`, `repo`, `demo`, `kind`, `place`, `slides`). Los datos vienen del frontmatter; el template solo los ordena y muestra. En `projects/single.html` las entradas muestran su `date` con el mismo formato que XMin; `year` quedó en el frontmatter de los proyectos actuales como dato histórico.
+
+`projects/list.html` sirve a los dos niveles: en `/projects/` lista los proyectos (carpetas), y dentro de cada proyecto muestra los datos del `_index.md` (estado, stack, código, demo) y lista sus entradas. Las entradas usan `projects/single.html`.
 
 ### `layouts/_default/terms.html` y `term.html` — tags y categorías
 
@@ -210,10 +212,13 @@ Un *render hook*: transforma todo bloque ```` ```mermaid ```` en `<pre class="me
 | Apuntes | `content/apuntes/` | `/blog/apuntes/` | `apuntes/list.html` |
 | Cuadernos | `content/apuntes/<tema>/` | `/blog/apuntes/<tema>/` | `apuntes/list.html` |
 | Proyectos | `content/projects/` | `/blog/projects/` | `projects/list.html` |
+| Proyecto / entradas | `content/projects/<proyecto>/` | `/blog/projects/<proyecto>/` | `projects/list.html` + `single.html` |
 | Eventos | `content/events/` | `/blog/events/` | `events/list.html` |
 | Tags / Categorías | (taxonomías) | `/blog/tags/`, `/blog/categories/` | `_default/terms.html` + `_default/term.html` (sin fechas) |
 
 Los apuntes de cursada (Estadística II, Análisis Matemático) y la investigación de distancias léxicas viven en `content/apuntes/`, organizados en **cuadernos**: una carpeta por tema con su `_index.md` de portada y los apuntes adentro. Los posts (`content/posts/`) son cosas personales: música, viajes, dibujos, teoría del sitio. La distinción es de contenido, no de formato: ambos comparten la plantilla de lista y los `tags`/`categories`.
+
+La misma lógica de carpetas aplica en `content/projects/`: cada proyecto tiene su `_index.md` de presentación y puede tener varias entradas al lado (`hugo new projects/mi-proyecto/entrada.md`). La URL conserva el nombre del proyecto, igual que los cuadernos.
 
 `content/events/ejemplo-evento.md` está en `draft = true`: es la plantilla comentada, no se publica.
 
@@ -303,7 +308,8 @@ hugo server -D
 hugo new posts/mi-nuevo-post.md
 hugo new apuntes/mi-tema/_index.md
 hugo new apuntes/mi-tema/primer-apunte.md
-hugo new projects/mi-proyecto.md
+hugo new projects/mi-proyecto/_index.md
+hugo new projects/mi-proyecto/primera-entrada.md
 hugo new events/mi-evento.md
 
 # 3. escribir en el .md, pasar draft = false cuando esté listo

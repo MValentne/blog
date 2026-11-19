@@ -7,11 +7,11 @@ locale = 'es-ar'
 title = 'Valentino Mendé | Blog'
 theme = 'hugo-xmin'
 
-# Posts, proyectos y eventos van a /<sección>/<slug>/; los apuntes conservan el cuaderno en la URL.
+# Posts y eventos van a /<sección>/<slug>/. Apuntes y proyectos conservan la carpeta (cuaderno / proyecto) en la URL.
 [permalinks]
   posts = '/posts/:slug/'
   apuntes = '/:sections/:slug/'
-  projects = '/projects/:slug/'
+  projects = '/:sections/:slug/'
   events = '/events/:slug/'
 
 [taxonomies]

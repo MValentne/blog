@@ -2,10 +2,16 @@
 
 <h1>{{ .Title }}</h1>
 
+{{ with .Params.status }}<p>{{ . }}</p>{{ end }}
+{{ with .Params.stack }}<p>{{ delimit . " · " }}</p>{{ end }}
+{{ with .Params.repo }}<p><a href="{{ . }}">Código</a></p>{{ end }}
+{{ with .Params.demo }}<p><a href="{{ . }}">Demo</a></p>{{ end }}
+
 {{ .Content }}
 
+{{ with .Pages.ByDate.Reverse }}
 <ul>
-  {{ range .Pages.ByDate.Reverse }}
+  {{ range . }}
   <li>
     <span class="date">{{ .Date.Format "2006/01/02" }}</span>
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -14,5 +20,6 @@
   </li>
   {{ end }}
 </ul>
+{{ end }}
 
 {{ partial "footer.html" . }}

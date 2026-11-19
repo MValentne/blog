@@ -28,7 +28,8 @@ git submodule update --init --recursive
 hugo new posts/mi-post.md
 hugo new apuntes/mi-tema/_index.md
 hugo new apuntes/mi-tema/primer-apunte.md
-hugo new projects/mi-proyecto.md
+hugo new projects/mi-proyecto/_index.md
+hugo new projects/mi-proyecto/primera-entrada.md
 hugo new events/mi-evento.md
 ```
 
