@@ -1,31 +1,31 @@
 +++
 date = '2026-08-10T18:17:40-03:00'
 draft = false
-title = 'Estadistica Descriptiva Bivariante Y Regresion Lineal'
+title = 'Estadística Descriptiva Bivariante Y Regresión Lineal'
 author = 'Valentino Mendé'
-tags = ["inferencia", "regresion"]
-categories = ["Estadistica"]
+tags = ["inferencia", "regresión"]
+categories = ["Estadística"]
 +++
 
-# Introduccion
-Empecemos hablando sobre la regresion, es un concepto introducido en 1889 por Francis Galton.
+# Introducción
+Empecemos hablando sobre la regresión, es un concepto introducido en 1889 por Francis Galton.
 
-> Galton fue un biólogo, estadistico y aventurero, primo de Charles Darwin, fundador (junto a otros) de la estadistica moderna. Su trabajo se centró en la descripcion de rasgos fisicos en los decendientes (una variable) a partir de los rasgos fisicos de los padres (otra variable).
+> Galton fue un biólogo, estadístico y aventurero, primo de Charles Darwin, fundador (junto a otros) de la estadística moderna. Su trabajo se centró en la descripción de rasgos físicos en los decendientes (una variable) a partir de los rasgos físicos de los padres (otra variable).
 
-Este hombre planteó lo siguiente: *"Cada peculiaridad de un hombre es compartida por sus descendientes, pero en media, en un grado menor"*; hablando sobre una regresion en la media. 
+Este hombre planteó lo siguiente: *"Cada peculiaridad de un hombre es compartida por sus descendientes, pero en media, en un grado menor"*; hablando sobre una regresión en la media. 
 
-Pearson (en relacion a Galton) hizo un estudio con mas de 1000 registros de grupos familiares observando la relacion entre la altura del hijo con su padre:
+Pearson (en relación a Galton) hizo un estudio con más de 1000 registros de grupos familiares observando la relación entre la altura del hijo con su padre:
 
 $$85cm + 0.5 \text{ altura de su padre(aprox)}$$
 
 > Los hijos heredan parte de la altura de sus padres, pero eventualmente regresan a la media.
 
-Hoy en dia la regresion consiste en la prediccion de una medida basandonos en el conocimiento de otra; digase, nos permite estudiar la relacion entre dos variables, y con base a esa relacion poder hacer estimaciones.
+Hoy en día la regresión consiste en la predicción de una medida basándonos en el conocimiento de otra; dígase, nos permite estudiar la relación entre dos variables, y con base a esa relación poder hacer estimaciones.
 
-En el contenido de este capitulo nos vamos a limitar a una regresion lineal, ya que es facil de interpretar, pero cabe aclarar que podrian llegar a haber curvaturas en una regresion.
+En el contenido de este capítulo nos vamos a limitar a una regresión lineal, ya que es fácil de interpretar, pero cabe aclarar que podrían llegar a haber curvaturas en una regresión.
 
 # Diagrama de dispersión
-De aqui viene el titulo de estadistica descriptiva bivariante, ya que nosotros analizamos la relacion entre dos variables. Vease una tabla con dos variables:
+De aquí viene el título de estadística descriptiva bivariante, ya que nosotros analizamos la relación entre dos variables. Véase una tabla con dos variables:
 
 | Altura (cm) | Peso (kg) |
 |---|---|
@@ -38,7 +38,7 @@ De aqui viene el titulo de estadistica descriptiva bivariante, ya que nosotros a
 | 185 | 85 |
 | 190 | 90 |
 
-Podemos visualizar estas dos variables en un diagrama de dispersión, pero primero tenemos que definir cual es la variable dependiente y cual es la independiente.
+Podemos visualizar estas dos variables en un diagrama de dispersión, pero primero tenemos que definir cuál es la variable dependiente y cuál es la independiente.
 
 $$x \implies y$$
 $$x \equiv \text{altura}$$
@@ -65,7 +65,7 @@ quadrantChart
     190-90: [0.95, 0.95]
 ```
 
-Y podemos ver si hay alguna relacion entre ambas variables. En este caso vemos que hay una relacion bastante directa entre ambas, ya que a mayor altura, mayor peso. Visualmente podemos concluir que hay una relacion lineal positiva entre ambas variables, y a partir de la formula de la pendiente podemos empezar a hacer estimaciones, a esto lo llamaremos modelo regresivo.
+Y podemos ver si hay alguna relación entre ambas variables. En este caso vemos que hay una relación bastante directa entre ambas, ya que a mayor altura, mayor peso. Visualmente podemos concluir que hay una relación lineal positiva entre ambas variables, y a partir de la fórmula de la pendiente podemos empezar a hacer estimaciones, a esto lo llamaremos modelo regresivo.
 
 >$$y = mx + b$$
 
@@ -75,7 +75,7 @@ $$x \equiv \text{independiente}$$
 $$b \equiv \text{costo fijo}$$
 $$m \equiv \text{pendiente}$$
 
-Cuestiones matematicas elementales que usaremos para estimar con este modelo. Tambien, a la forma generada por los puntos se le llama la nube de puntos. Y si al llegar a la forma de la pendiente, probamos con dos puntos cualesquiera a lo largo del eje x, podemos formar la recta de regresion, una recta que cruza la nube de puntos para ver que tanto se aleja cada punto del comportamiento esperado de la relacion.
+Cuestiones matemáticas elementales que usaremos para estimar con este modelo. También, a la forma generada por los puntos se le llama la nube de puntos. Y si al llegar a la forma de la pendiente, probamos con dos puntos cualesquiera a lo largo del eje x, podemos formar la recta de regresión, una recta que cruza la nube de puntos para ver que tanto se aleja cada punto del comportamiento esperado de la relación.
 
 # Correlación lineal de Pearson
 
@@ -83,7 +83,7 @@ Antes de animarnos a construir una recta que prediga valores, necesitamos saber 
 
 $$r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$$
 
-Este coeficiente siempre toma un valor entre $-1$ y $1$, y siguiendo un criterio podemos determinar cuan fuerte es una relacion:
+Este coeficiente siempre toma un valor entre $-1$ y $1$, y siguiendo un criterio podemos determinar cuán fuerte es una relación:
 
 | Valor de $r$ | Interpretación |
 |---|---|
@@ -105,7 +105,7 @@ Es importante aclarar algo que se repite mucho en estadística: correlación no 
 
 Una vez que confirmamos que existe una correlación lineal considerable, podemos avanzar a construir el modelo de regresión. El objetivo es encontrar la recta que mejor se ajuste a la nube de puntos, es decir, la que minimice la distancia entre los valores observados y los valores predichos por la recta. 
 
-> Nosotros hablamos informalmente de esto como la formula de la pendiente, pero la idea es exactamente la misma ya que nos interesa el valor geometrico que tiene.
+> Nosotros hablamos informalmente de esto como la fórmula de la pendiente, pero la idea es exactamente la misma ya que nos interesa el valor geométrico que tiene.
 
 A este método se lo conoce como método de mínimos cuadrados ordinarios (MCO), y busca minimizar la suma de los cuadrados de los residuos (ya vamos a hablar de residuos en la próxima sección).
 
@@ -124,7 +124,7 @@ $$b_1 = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}$$
 
 $$b_0 = \bar{y} - b_1 \bar{x}$$
 
-> Notese que el numerador de $b_1$ es el mismo que usamos en la fórmula de Pearson. Esto no es casualidad: la pendiente de la recta de regresión está directamente relacionada con la fuerza de la correlación.
+> Nótese que el numerador de $b_1$ es el mismo que usamos en la fórmula de Pearson. Esto no es casualidad: la pendiente de la recta de regresión está directamente relacionada con la fuerza de la correlación.
 
 **Interpretación de $b_1$:** por cada unidad que aumenta $x$, se espera que $y$ aumente (o disminuya, si $b_1$ es negativo) en $b_1$ unidades.
 

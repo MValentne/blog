@@ -1,53 +1,53 @@
 +++
 date = '2026-08-09T14:01:28-03:00'
 draft = false
-title = 'Analisis De Frecuencias Con Chi Cuadrado'
+title = 'Análisis De Frecuencias Con Chi Cuadrado'
 author = 'Valentino Mendé'
-tags = ["chi-cuadrado", "prueba de hipotesis", "inferencia"]
-categories = ["Estadistica"]
+tags = ["chi-cuadrado", "prueba de hipótesis", "inferencia"]
+categories = ["Estadística"]
 +++
 
-# Introduccion
-Entramos a la parte mas linda de la materia, la introduccion al [chi-cuadrado](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_%CF%87%C2%B2) y sus usos practicos. A lo largo de este capitulo hablaremos de los metodos y los usos de la prueba de hipotesis basada en el chi-cuadrado.
+# Introducción
+Entramos a la parte más linda de la materia, la introducción al [chi-cuadrado](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_%CF%87%C2%B2) y sus usos prácticos. A lo largo de este capítulo hablaremos de los métodos y los usos de la prueba de hipótesis basada en el chi-cuadrado.
 
-Me fascina este tema y lo considero un punto climatico en toda la cursada de Estadistica; las pruebas con chi-cuadrado son muy flexibles, son faciles de modelar y son muy usadas en la practica.
+Me fascina este tema y lo considero un punto climático en toda la cursada de Estadística; las pruebas con chi-cuadrado son muy flexibles, son fáciles de modelar y son muy usadas en la práctica.
 
 El chi cuadrado nos permite dar respuesta a las siguientes preguntas bajo diferentes modelos:
-1. Se puede probar si una poblacion sigue una distribucion de probabilidad dada? (Bondad de ajuste)
+1. Se puede probar si una población sigue una distribución de probabilidad dada? (Bondad de ajuste)
 2. Existe evidencia para probar que dos variables son independientes? (Independencia)
-3. Podemos probar que dos poblaciones son homogeneas o que tienen la misma proporcion segun algun criterio? (Homogeneidad)
+3. Podemos probar que dos poblaciones son homogéneas o que tienen la misma proporción según algún criterio? (Homogeneidad)
 4. Podemos probar la aleatoreidad de los resultados de una muestra? (Aleatoreidad)
 
-Y la realidad es que la metodologia para la respuesta a todas estas preguntas se asemeja bastante.
+Y la realidad es que la metodología para la respuesta a todas estas preguntas se asemeja bastante.
 
-# Distribucion chi-cuadrada
-El **estadistico chi-cuadrado** es una medida de discrepancia, digase, mide cuan distantes son los datos observados de un modelo esperado. Todo nuestro recorrido con chi-cuadrado consiste en comparaciones entre datos observados y datos esperados, y podemos hacer magia al llevarlo a la practica. 
+# Distribución chi-cuadrada
+El **estadístico chi-cuadrado** es una medida de discrepancia, dígase, mide cuán distantes son los datos observados de un modelo esperado. Todo nuestro recorrido con chi-cuadrado consiste en comparaciones entre datos observados y datos esperados, y podemos hacer magia al llevarlo a la práctica. 
 
-Si el valor de chi-cuadrado es grande, entonces hay una discrepancia entre lo observado y lo esperado, por lo que posiblemente lo observado no sigue el modelo esperado; y eso implica que entre mas pequeno sea el chi-cuadrado, mas compatible sera lo observado con lo esperado, o que efectivamente se adhiere al modelo esperado.
+Si el valor de chi-cuadrado es grande, entonces hay una discrepancia entre lo observado y lo esperado, por lo que posiblemente lo observado no sigue el modelo esperado; y eso implica que entre más pequeño sea el chi-cuadrado, más compatible sera lo observado con lo esperado, o que efectivamente se adhiere al modelo esperado.
 
-El estadistico de prueba chi-cuadrado se calcula a partir de la sumatoria de comparaciones entre observado y esperado, se denota de la siguiente manera:
+El estadístico de prueba chi-cuadrado se calcula a partir de la sumatoria de comparaciones entre observado y esperado, se denota de la siguiente manera:
 
 $$\chi^2 = \sum_{i=1}^{k} \frac{(O_i - E_i)^2}{E_i}$$
 $$O_i \equiv \text{valor observado}$$
 $$E_i \equiv \text{valor esperado}$$
 $$k \equiv \text{grados de libertad}$$
 
-La distribucion de probabilidad de chi-cuadrado se ve de la siguiente forma:
+La distribución de probabilidad de chi-cuadrado se ve de la siguiente forma:
 
-![distribucion chi-cuadrado](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNtwvsYnHg803NeNKIx_cY28WtQrMQQoEbffCjsKpbS-tYUV_ul4Z37stG&s=10)
+![distribución chi-cuadrado](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNtwvsYnHg803NeNKIx_cY28WtQrMQQoEbffCjsKpbS-tYUV_ul4Z37stG&s=10)
 
-- Es asimetrica a la derecha pero cuando $n \geq 30$ se aproxima a una normal
+- Es asimétrica a la derecha pero cuando $n \geq 30$ se aproxima a una normal
 - $\chi^2$ tiene un dominio que va desde $0$ al $\infty$
 - Su moda es $k - 2$ siendo su media $k$ y varianza $2k$
 
 Y sobre su uso, ya vimos algunos escenarios de uso, pero algunas especificaciones de estos son:
 
 - **Bondad de ajuste**: Una variable, un grupo. (Mis datos encajan con un modelo?)
-- **Independencia**: Dos variables, un grupo. (Estan relacionadas mis variables?)
-- **Homogeneidad**: Una variable en comun por grupo, dos grupos. (La variable se distribuye igual en ambos grupos?)
+- **Independencia**: Dos variables, un grupo. (Están relacionadas mis variables?)
+- **Homogeneidad**: Una variable en común por grupo, dos grupos. (La variable se distribuye igual en ambos grupos?)
 
 # Bondad de ajuste con chi-cuadrado
-Supongase que en una muestra se observa una serie de sucesos $E_1, E_2, E_3, ..., E_k$ de los cuales se extraen ciertas ocurrencias $o_1, o_2, o_3, ..., o_k$ y una suposicion de que estas ocurrencias sigan un resultado particular esperado $e_1, e_2, e_3, ..., e_k$. 
+Supóngase que en una muestra se observa una serie de sucesos $E_1, E_2, E_3, ..., E_k$ de los cuales se extraen ciertas ocurrencias $o_1, o_2, o_3, ..., o_k$ y una suposición de que estas ocurrencias sigan un resultado particular esperado $e_1, e_2, e_3, ..., e_k$. 
 
 Buscamos saber si los valores observados $o$ se comportan de la misma forma que $e$, por lo que nos interesa saber si $o_k \approx e_k$.
 
@@ -77,13 +77,13 @@ $$P(1 \leq E_i < 5) \leq 0.20$$
 
 $$gl = 1 \implies E_i \geq 5 \text{ (recomendado)}$$
 
-Por lo que dicho en terminos simples, si a la hora de tabular no se cumple este criterio, decimos que la prueba no es robusta, y lo aclaramos para que no se tomen decisiones cruciales con base a estos resultados.
+Por lo que dicho en términos simples, si a la hora de tabular no se cumple este criterio, decimos que la prueba no es robusta, y lo aclaramos para que no se tomen decisiones cruciales con base a estos resultados.
 
 Ahora, en caso de que nuestra prueba no sea robusta, inentamos replantear la prueba de la siguiente forma:
 
-1. Combinando categorias. Si es posible juntar elementos de la muestra sin afectar lo que estamos estudiando, abstraer de esta forma el problema nos puede dar mas robustez.
+1. Combinando categorías. Si es posible juntar elementos de la muestra sin afectar lo que estamos estudiando, abstraer de esta forma el problema nos puede dar más robustez.
 2. Pruebas exactas con software.
-3. O simplemente indicamos que la prueba no es robusta y que se tenga precaucion con los resultados de esta, ya que no dictan informacion del todo confiable.
+3. O simplemente indicamos que la prueba no es robusta y que se tenga precaución con los resultados de esta, ya que no dictan información del todo confiable.
 
 ## Ejemplificamos con un dado
 
@@ -93,7 +93,7 @@ Si el dado fuera perfectamente justo, esperaríamos que cada cara salga la misma
 
 $$E_i = \frac{n}{k} = \frac{60}{6} = 10$$
 
-Es decir, esperamos 10 apariciones para cada una de las 6 caras. Las frecuencias observadas $O_i$ son lo que realmente contamos al tirar el dado. Por lo que esperamos que el dado siga una distribucion de probabilidad uniforme (bastante simple e intuitivo)
+Es decir, esperamos 10 apariciones para cada una de las 6 caras. Las frecuencias observadas $O_i$ son lo que realmente contamos al tirar el dado. Por lo que esperamos que el dado siga una distribución de probabilidad uniforme (bastante simple e intuitivo)
 
 Planteamos las hipótesis:
 
@@ -119,7 +119,7 @@ $$\chi^2_{calculado} > \chi^2_{\alpha, gl} \implies \text{se rechaza } H_0$$
 
 $$\chi^2_{calculado} \leq \chi^2_{\alpha, gl} \implies \text{no se rechaza } H_0$$
 
-## Calculo del estadistico
+## Cálculo del estadístico
 
 Con los datos observados y esperados armamos una tabla y aplicamos la fórmula:
 
@@ -138,7 +138,7 @@ Sumando la última columna obtenemos el estadístico calculado:
 
 $$\chi^2_{calculado} = 2.8$$
 
-## Decision y conclusion
+## Decisión y conclusión
 
 Comparamos el valor calculado contra el valor crítico de tabla. Para $gl=5$ y $\alpha=0.05$:
 
@@ -150,7 +150,7 @@ $$\chi^2_{calculado} = 2.8 < 11.07 = \chi^2_{0.05, 5}$$
 
 No rechazamos $H_0$. Concluimos que no hay evidencia suficiente para afirmar que el dado esté cargado; los datos son consistentes con un dado justo.
 
-Por ende, el dado no esta trucado con una confianza del 95%. Es una prueba robusta.
+Por ende, el dado no está trucado con una confianza del 95%. Es una prueba robusta.
 
 ## Prueba chi-cuadrada para la bondad de ajuste de distribuciones conocidas
 
@@ -169,29 +169,29 @@ $$m = 2 \implies gl = k - 1 - 2 = k - 3$$
 El resto del procedimiento (cálculo del estadístico, comparación con el valor crítico, decisión) es idéntico al caso de bondad de ajuste general.
 
 # Prueba de independencia con chi-cuadrado
-> Hay una confusion comun entre independencia y homogeneidad, nuestro punto clave de referencia es interpretar las poblaciones que se contemplan. Si estamos trabajando con dos variables **de la misma poblacion**, trabajamos con una prueba de independencia. 
+> Hay una confusión común entre independencia y homogeneidad, nuestro punto clave de referencia es interpretar las poblaciones que se contemplan. Si estamos trabajando con dos variables **de la misma población**, trabajamos con una prueba de independencia. 
 
-La idea de la prueba de independencia es probar si dos variables cualitativas de una misma poblacion estan relacionadas de tal forma en la que una implica a la otra. Nosotros lo pensamos de esta forma:
+La idea de la prueba de independencia es probar si dos variables cualitativas de una misma población están relacionadas de tal forma en la que una implica a la otra. Nosotros lo pensamos de esta forma:
 
 $$H_0: \text{las variables son independientes}$$
 
 $$H_1: \text{las variables no son independientes}$$
 
-Lo comun es armar una tabla de contingencia de este estilo: 
+Lo común es armar una tabla de contingencia de este estilo: 
 
-| | Columna 1 | Columna 2 | ... | Columna $c$ | Total renglon |
+| | Columna 1 | Columna 2 | ... | Columna $c$ | Total renglón |
 |---|---|---|---|---|---|
-| **Renglon 1** | $O_{11}$ | $O_{12}$ | ... | $O_{1c}$ | $O_{1.}$ |
-| **Renglon 2** | $O_{21}$ | $O_{22}$ | ... | $O_{2c}$ | $O_{2.}$ |
+| **Renglón 1** | $O_{11}$ | $O_{12}$ | ... | $O_{1c}$ | $O_{1.}$ |
+| **Renglón 2** | $O_{21}$ | $O_{22}$ | ... | $O_{2c}$ | $O_{2.}$ |
 | **...** | ... | ... | ... | ... | ... |
-| **Renglon $r$** | $O_{r1}$ | $O_{r2}$ | ... | $O_{rc}$ | $O_{r.}$ |
+| **Renglón $r$** | $O_{r1}$ | $O_{r2}$ | ... | $O_{rc}$ | $O_{r.}$ |
 | **Total columna** | $O_{.1}$ | $O_{.2}$ | ... | $O_{.c}$ | $n$ |
 
-Por lo que vamos a conseguir el estadistico chi-cuadrado de esta forma:
+Por lo que vamos a conseguir el estadístico chi-cuadrado de esta forma:
 
 $$\chi^2 = \sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}$$
 
-Donde $O_{ij}$ son los valores observados y $E_{ij}$ son los valores esperados bajo la hipotesis nula.
+Donde $O_{ij}$ son los valores observados y $E_{ij}$ son los valores esperados bajo la hipótesis nula.
 
 Nuestros grados de libertad toman la forma:
 
@@ -199,7 +199,7 @@ $$gl = k = (r - 1)(c - 1)$$
 
 ## Ejemplo práctico
 
-Supongamos que queremos estudiar si el hábito de hacer ejercicio está relacionado con el nivel de estrés en estudiantes universitarios. Se encuesta a 120 estudiantes, registrando ambas variables. Notese como se cruzan ambas variables en la tabla de contingencia:
+Supongamos que queremos estudiar si el hábito de hacer ejercicio está relacionado con el nivel de estrés en estudiantes universitarios. Se encuesta a 120 estudiantes, registrando ambas variables. Nótese como se cruzan ambas variables en la tabla de contingencia:
 
 |                       | Estrés alto | Estrés bajo | Total |
 | --------------------- | ----------: | ----------: | ----: |
@@ -295,19 +295,19 @@ Existe evidencia estadísticamente significativa para afirmar que el hábito de 
 
 
 # Prueba de Homogeneidad con chi-cuadrado
-Ahora entramos en situacion, tenemos dos poblaciones que comparten una variable. Pensemos en hombres y mujeres respecto a preferencias entre salado/dulce; sera que ambas poblaciones se comportan de la misma manera?
+Ahora entramos en situación, tenemos dos poblaciones que comparten una variable. Pensemos en hombres y mujeres respecto a preferencias entre salado/dulce; sera que ambas poblaciones se comportan de la misma manera?
 
-El planteamiento de las hipotesis se razona de esta manera:
+El planteamiento de las hipótesis se razona de esta manera:
 
 $$ H_0:\text{ las preferencias entre salado/dulce son iguales entre hombres y mujeres} $$
 
 $$ H_1:\text{ las preferencias entre salado/dulce son diferentes entre hombres y mujeres} $$
 
-> El procedimiento es identico al de la prueba de independencia.
+> El procedimiento es idéntico al de la prueba de independencia.
 
 ## Ejemplo práctico
 
-Se desea comparar si las preferencias entre salado y dulce son iguales entre hombres y mujeres (lo que veniamos diciendo). Para ello se encuesta a **50 hombres** y **50 mujeres**, obteniendo los siguientes resultados:
+Se desea comparar si las preferencias entre salado y dulce son iguales entre hombres y mujeres (lo que veníamos diciendo). Para ello se encuesta a **50 hombres** y **50 mujeres**, obteniendo los siguientes resultados:
 
 |             | Prefiere salado | Prefiere dulce | Total |
 | ----------- | --------------: | -------------: | ----: |
