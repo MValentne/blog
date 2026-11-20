@@ -1,7 +1,7 @@
 +++
 title = 'Gestión de Memoria Principal'
 date = '2026-11-19T20:43:00-03:00'
-draft = true
+draft = false
 author = 'Valentino Mendé'
 tags = ['Sistema Operativo', 'Examen']
 categories = ['Computacion']
