@@ -1,0 +1,23 @@
++++
+title = 'Segundo Parcial Teorico SO'
+date = '2026-11-19T20:00:59-03:00'
+draft = true
+author = 'Valentino Mendé'
+tags = ['Sistema Operativo', 'Examen']
+categories = ['Computacion']
++++
+
+Utilizo este espacio para tratar con la preparacion para mi segundo parcial teorico de Sistema Operativo. Se contemplan los siguientes temas:
+
+1. Memoria Principal
+2. Memoria Virtual
+3. Almacenamiento Masivo
+4. Sistemas de Entrada/Salida
+5. Sistemas de Archivos
+6. Seguridad y Proteccion 
+
+---
+## Entradas:
+
+
+
