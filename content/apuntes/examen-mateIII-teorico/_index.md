@@ -3,7 +3,7 @@ date = '2026-07-13T17:59:12-03:00'
 draft = false
 title = 'Notas para el final teórico de Análisis Matemático'
 author = 'Valentino Mendé'
-tags = ["examen", "notas personales"]
+tags = ["exámen", "notas personales"]
 categories = ["Matemática"]
 +++
 Resulta que tengo un final de análisis matemático, correspondiente a matemática III en mi carrera informática. Tomo la situación como excusa para jugar más con el framework y darle un poco de vida al blog. 

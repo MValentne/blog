@@ -3,7 +3,7 @@ title = 'Segundo Parcial Teórico SO'
 date = '2026-11-19T20:00:59-03:00'
 draft = false
 author = 'Valentino Mendé'
-tags = ['Sistema Operativo', 'Examen']
+tags = ['Sistema Operativo', 'Exámen']
 categories = ['Computación']
 +++
 

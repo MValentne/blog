@@ -68,9 +68,11 @@ Lo que **ya no está** (y por qué):
 ├── layouts/               # Plantillas propias (sobrescriben las del tema)
 │   ├── index.html         # home: últimos posts
 │   ├── _partials/
-│   │   └── head_custom.html  # favicons, ajustes al menú, KaTeX, Mermaid
+│   │   ├── head_custom.html  # favicons, ajustes al menú, KaTeX, Mermaid, CSS del toc
+│   │   └── toc.html          # índice automático desde los headers
 │   ├── _default/_markup/
 │   │   └── render-codeblock-mermaid.html  # ```mermaid -> <pre class="mermaid">
+│   ├── _default/single.html  # single de XMin + índice opcional (toc = true)
 │   ├── _default/terms.html   # índice de tags/categorías, sin fechas
 │   ├── _default/term.html    # páginas individuales de tag/categoría, sin fechas
 │   ├── posts/list.html
@@ -175,7 +177,15 @@ XMin trae un `list.html` que reutiliza el formato de posts y por eso muestra la 
 - `terms.html` es el índice (`/tags/`, `/categories/`): lista cada término con su cantidad de páginas entre paréntesis. En `/tags/` agrega un `<input type="search">` con un script que oculta los `<li>` cuyo tag no contiene lo escrito (sin librerías; usa el atributo `hidden`).
 - `term.html` es la página de un término (`/tags/musica/`, `/categories/musica/`): lista los títulos con link, sin fecha.
 
-Son las únicas plantillas de `_default/` del proyecto; el resto viene del tema.
+### `layouts/_default/single.html` — índice opcional
+
+Es una copia del `single.html` de XMin con una única línea agregada dentro de `<main>`, antes de `.Content`:
+
+```html
+{{ if .Params.toc }}{{ partial "toc.html" . }}{{ end }}
+```
+
+Como no hay `apuntes/single.html` ni `posts/single.html`, esta plantilla alcanza a posts, apuntes, about, etc. Proyectos y eventos tienen su propio `single.html` y no la usan (salvo que se agregue lo mismo ahí).
 
 ### `layouts/_partials/head_custom.html`
 
@@ -184,7 +194,14 @@ XMin deja dos hooks vacíos: `head_custom.html` (dentro de `<head>`) y `foot_cus
 - favicons + `site.webmanifest`;
 - reglas mínimas en un `<style>`: `.menu { margin: 0; }` (el `<ul>` tiene un margen por defecto de 16px que despegaba la barra del borde superior y de la línea), `.menu li { margin-right: 0.5em; }` (con `--minify` los ítems quedaban pegados; el último no lleva margen), un `@media (max-width: 700px)` que compacta los ítems para que no se parta en dos filas tan fácil, y `.article-meta { background: none; padding: 0; }` (XMin le pone un fondo gris al bloque título + fecha);
 - KaTeX con `auto-render` (carga `defer`, busca delimitadores en el DOM);
-- Mermaid como módulo ES, **solo si la página contiene la palabra `mermaid`** (ahorra ~1 MB en el resto).
+- Mermaid como módulo ES, **solo si la página contiene la palabra `mermaid`** (ahorra ~1 MB en el resto);
+- estilos del índice (`.toc`): caja gris clara con borde izquierdo, igual que los `blockquote` de XMin.
+
+### `layouts/_partials/toc.html` — índice automático
+
+Usa `.TableOfContents` de Hugo, así que los links se generan solos a partir de los headers (`##` por defecto, también `###` si los hay) y nunca se desactualizan al editar el texto. Envuelve el `<nav id="TableOfContents">` que produce Hugo en un `<aside class="toc">` con un título: por defecto «Índice», configurable con `tocTitle` en el frontmatter. Si la página no tiene headers, no renderiza nada.
+
+El nivel de headers que incluye se controla globalmente en `hugo.toml` con `[markup.tableOfContents]` (`startLevel`/`endLevel`); no hace falta tocar el partial.
 
 ### `layouts/shortcodes/qa.html`
 
@@ -207,7 +224,7 @@ Un *render hook*: transforma todo bloque ```` ```mermaid ```` en `<pre class="me
 | Sección | Carpeta | URL | Template de lista |
 |---|---|---|---|
 | Home | `content/_index.md` | `/blog/` | `index.html` |
-| Sobre mí | `content/about.md` | `/blog/about/` | XMin `single.html` |
+| Sobre mí | `content/about.md` | `/blog/about/` | `_default/single.html` (idéntico al de XMin) |
 | Posts | `content/posts/` | `/blog/posts/` | `posts/list.html` |
 | Apuntes | `content/apuntes/` | `/blog/apuntes/` | `apuntes/list.html` |
 | Cuadernos | `content/apuntes/<tema>/` | `/blog/apuntes/<tema>/` | `apuntes/list.html` |
@@ -235,6 +252,8 @@ Hugo acepta TOML (`+++`), YAML (`---`) o JSON. En este repo se usa TOML por conv
 title = 'Título'
 date = 2026-11-19T12:00:00-03:00
 draft = true                 # true = solo se ve con `hugo server -D`
+toc = true                   # opcional: índice automático al inicio
+# tocTitle = 'Contenidos'    # opcional: cambia el título «Índice»
 author = 'Valentino Mendé'
 tags = ['tag1', 'tag2']
 categories = ['Categoría']
@@ -269,7 +288,7 @@ draft = true
 +++
 ```
 
-**Ojo con los nombres:** las claves del frontmatter son las que leen los templates. Si escribís `keywords` en vez de `tags`, el post se ve igual pero no aparece en `/tags/`. Los archivos viejos tenían `keyword`/`keywords` y `toc`/`tocBorder`: se normalizaron a `tags` y se sacaron los campos muertos.
+**Ojo con los nombres:** las claves del frontmatter son las que leen los templates. Si escribís `keywords` en vez de `tags`, el post se ve igual pero no aparece en `/tags/`. Los archivos viejos tenían `keyword`/`keywords` y `toc`/`tocBorder`: se normalizaron a `tags` y se sacaron los campos muertos. `toc` volvió a usarse, ahora como flag del índice automático (ver §8); `tocBorder` sigue sin usarse.
 
 ---
 
@@ -277,6 +296,7 @@ draft = true
 
 | Extra | Dónde vive | Cómo se usa |
 |---|---|---|
+| Índice automático | `layouts/_partials/toc.html` + `_default/single.html` | `toc = true` en el frontmatter (opcional `tocTitle = '...'`) |
 | `qa` | `layouts/shortcodes/qa.html` | `{{< qa q="..." >}}...{{< /qa >}}` |
 | Mermaid | render hook + JS condicional | bloque ```` ```mermaid ```` |
 | Fórmulas | passthrough + KaTeX | `$x^2$`, `$$\int f$$` |
@@ -291,7 +311,7 @@ Para un link interno siempre usá `relref` o `{{ "ruta/" | relURL }}`. Nunca esc
 
 ## 9. Estilos
 
-No hay hojas de estilo propias. Se usa `themes/hugo-xmin/static/css/style.css` (51 líneas) y `fonts.css` directamente del submodule, sin copias ni variables agregadas. Las únicas excepciones son las reglas de `head_custom.html`: el margen del menú, el espacio entre sus ítems y la eliminación del fondo gris de `.article-meta`. Las plantillas de listado usan el mismo markup que XMin (`<span class="date">`, `<ul>`), y el shortcode `qa` es un `<details>` sin clases.
+No hay hojas de estilo propias. Se usa `themes/hugo-xmin/static/css/style.css` (51 líneas) y `fonts.css` directamente del submodule, sin copias ni variables agregadas. Las únicas excepciones son las reglas de `head_custom.html`: el margen del menú, el espacio entre sus ítems, la eliminación del fondo gris de `.article-meta` y el estilo del índice (`.toc`). Las plantillas de listado usan el mismo markup que XMin (`<span class="date">`, `<ul>`), y el shortcode `qa` es un `<details>` sin clases.
 
 Si en algún momento querés cambiar el look: copiá esos archivos a `static/css/` y editá la copia (Hugo prioriza `static/` del proyecto sobre el del tema). No hace falta tocar el submodule.
 

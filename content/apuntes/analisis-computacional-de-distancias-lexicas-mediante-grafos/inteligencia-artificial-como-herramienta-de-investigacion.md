@@ -1,6 +1,6 @@
 +++
 date = '2026-08-28T00:23:23-03:00'
-draft = false
+draft = true
 title = 'Inteligencia Artificial Como Herramienta De Investigación'
 author = 'Valentino Mendé'
 tags = ["IA", "investigación", "Agentes"]

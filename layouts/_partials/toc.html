@@ -1,0 +1,8 @@
+{{/* Índice generado a partir de los headers de la página. Se activa con toc = true en el frontmatter. */ -}}
+{{- $page := . -}}
+{{- with .TableOfContents }}
+<aside class="toc" aria-label="Índice">
+  <h2>{{ or $page.Params.tocTitle "Índice" }}</h2>
+  {{ . }}
+</aside>
+{{- end }}
