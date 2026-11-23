@@ -1,6 +1,7 @@
 +++
 title = 'Memoria Virtual'
 date = '2026-11-21T14:35:37-03:00'
+toc = true
 draft = false
 author = 'Valentino Mendé'
 tags = ['Sistema Operativo']
@@ -89,3 +90,4 @@ Si el sistema se satura y entra en este estado, fuerza la detención de algún p
 4. **Frecuencia de Fallos de Página (PFF):** ¿Cómo ajusta el SO el número de marcos de un proceso mediante límites superior e inferior de tasa de fallos?
 
 Se establece un número de fallos máximos para los procesos, y si superan este límite, se les asignan más marcos. Si no hay marcos libres disponibles, se descarta algún proceso.
+
